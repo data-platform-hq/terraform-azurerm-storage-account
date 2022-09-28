@@ -1,5 +1,5 @@
-# Azure <> Terraform module
-Terraform module for creation Azure Resource Group
+# Azure Storage Account Terraform module
+Terraform module for creation Azure Storage Account
 
 ## Usage
 
@@ -9,4 +9,4 @@ Terraform module for creation Azure Resource Group
 
 ## License
 
-Apache 2 Licensed. For more information please see [LICENSE](https://github.com/data-platform-hq/terraform-azure-resource-group/tree/master/LICENSE)
+Apache 2 Licensed. For more information please see [LICENSE](https://github.com/data-platform-hq/terraform-azurerm-storage-account/tree/main/LICENSE)
