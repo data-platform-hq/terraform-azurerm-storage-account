@@ -18,11 +18,6 @@ output "primary_blob_endpoint" {
   description = "The endpoint URL for DFS storage in the primary location"
 }
 
-output "sas_uri" {
-  value       = data.azurerm_storage_account_sas.this.sas
-  description = "Value of SAS URI token used by Storage Account Linked Service"
-}
-
 output "primary_key" {
   value       = azurerm_storage_account.this.primary_access_key
   description = "Access key for Blob Storage"

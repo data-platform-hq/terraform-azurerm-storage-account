@@ -19,11 +19,6 @@ variable "location" {
   description = "Azure location"
 }
 
-variable "sas_expiration_date" {
-  type        = string
-  description = "This token is used by Storage Account linked service for Snowflake and it is expiring on certain date"
-}
-
 # Optional
 variable "prefix" {
   type        = string
