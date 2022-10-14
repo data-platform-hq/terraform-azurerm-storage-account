@@ -27,7 +27,6 @@ No modules.
 |------|------|
 | [azurerm_role_assignment.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
 | [azurerm_storage_account.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account) | resource |
-| [azurerm_storage_account_sas.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/storage_account_sas) | data source |
 
 ## Inputs
 
@@ -49,7 +48,6 @@ No modules.
 | <a name="input_project"></a> [project](#input\_project) | Project name | `string` | n/a | yes |
 | <a name="input_replication_type"></a> [replication\_type](#input\_replication\_type) | The type of replication to use: [LRS\|GRS\|RAGRS\|ZRS\|GZRS\|RAGZRS] | `string` | `"GRS"` | no |
 | <a name="input_resource_group"></a> [resource\_group](#input\_resource\_group) | The name of the resource group in which to create the storage account | `string` | n/a | yes |
-| <a name="input_sas_expiration_date"></a> [sas\_expiration\_date](#input\_sas\_expiration\_date) | This token is used by Storage Account linked service for Snowflake and it is expiring on certain date | `string` | n/a | yes |
 | <a name="input_suffix"></a> [suffix](#input\_suffix) | Resource name suffix | `string` | `""` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A mapping of tags to assign to the resource | `map(any)` | `{}` | no |
 | <a name="input_virtual_networks"></a> [virtual\_networks](#input\_virtual\_networks) | A list of resource ids for subnets | `list(string)` | `null` | no |
@@ -63,7 +61,6 @@ No modules.
 | <a name="output_primary_blob_endpoint"></a> [primary\_blob\_endpoint](#output\_primary\_blob\_endpoint) | The endpoint URL for DFS storage in the primary location |
 | <a name="output_primary_dfs_endpoint"></a> [primary\_dfs\_endpoint](#output\_primary\_dfs\_endpoint) | The endpoint URL for DFS storage in the primary location |
 | <a name="output_primary_key"></a> [primary\_key](#output\_primary\_key) | Access key for Blob Storage |
-| <a name="output_sas_uri"></a> [sas\_uri](#output\_sas\_uri) | Value of SAS URI token used by Storage Account Linked Service |
 <!-- END_TF_DOCS -->
 
 ## License
