@@ -83,5 +83,5 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_tableServices" {
     }
   }
 
- depends_on = [azurerm_storage_account.this]
+  depends_on = [azurerm_storage_account.this]
 }
