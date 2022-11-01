@@ -51,11 +51,11 @@ No modules.
 | <a name="input_suffix"></a> [suffix](#input\_suffix) | Resource name suffix | `string` | `""` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A mapping of tags to assign to the resource | `map(any)` | `{}` | no |
 | <a name="input_virtual_networks"></a> [virtual\_networks](#input\_virtual\_networks) | A list of resource ids for subnets | `list(string)` | `null` | no |
-| <a name="input_log_analytics_workspace"></a> [tags](#input\_log\_analytics\_workspace) | Log Analytics Workspace Name to ID map | `map(string)` | `{}` | no |
-| <a name="input_log_category_list"></a> [tags](#input\_log\_category_list) | Log category list | `list(string)` | ` <pre>[<br> object_id = null <br> role = null <br>]</pre>` | no |
-| <a name="input_log_retention_days"></a> [tags](#input\_log\_retention\_days) | Retention log policy days | `number` | `0` | no |
-| <a name="input_metric_retention_days"></a> [tags](#input\_metric\_retention\_days) | Metric policy days | `number` | `0` | no |
-| <a name="input_destination_type"></a> [tags](#input\_destination_type) | Log analytics destination type | `string` | `Dedicated` | no |
+| <a name="input_log_analytics_workspace"></a> [log_analytics\_workspace](#input\_log\_analytics\_workspace) | Log Analytics Workspace Name to ID map | `map(string)` | `{}` | no |
+| <a name="input_log_category_list"></a> [log\_category\_list](#input\_log\_category_list) | Log category list | `list(string)` |  <pre> [ <br> "StorageRead", <br> "StorageWrite", <br> "StorageDelete" <br> ] </pre> | no |
+| <a name="input_log_retention_days"></a> [log\_retention\_days](#input\_log\_retention\_days) | Retention log policy days | `number` | `0` | no |
+| <a name="input_metric_retention_days"></a> [metric\_retention\_days](#input\_metric\_retention\_days) | Metric policy days | `number` | `0` | no |
+| <a name="input_destination_type"></a> [destination\_type](#input\_destination_type) | Log analytics destination type | `string` | `Dedicated` | no |
 
 ## Outputs
 
