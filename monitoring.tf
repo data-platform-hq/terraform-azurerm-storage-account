@@ -52,7 +52,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_blob" {
   depends_on = [azurerm_storage_account.this]
 }
 
-resource "azurerm_monitor_diagnostic_setting" "monitoring_tableServices" {
+resource "azurerm_monitor_diagnostic_setting" "monitoring_tables" {
   for_each = { for k, v in var.log_analytics_workspace : k => v }
 
   name                           = "monitoring-${var.project}-${var.env}-${var.location}"
