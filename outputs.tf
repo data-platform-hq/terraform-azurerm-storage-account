@@ -22,4 +22,3 @@ output "primary_key" {
   value       = azurerm_storage_account.this.primary_access_key
   description = "Access key for Blob Storage"
 }
-
