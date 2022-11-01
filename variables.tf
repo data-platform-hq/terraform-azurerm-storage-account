@@ -122,7 +122,8 @@ variable "log_analytics_workspace" {
 }
 
 variable "log_category_list" {
-  type = list(any)
+  type        = list(string)
+  description = "Log category list"
   default = [
     "StorageRead",
     "StorageWrite",
@@ -132,18 +133,18 @@ variable "log_category_list" {
 
 variable "log_retention_days" {
   default     = 0
+  description = "Retention log policy days"
   type        = number
-  description = "Retention policy days"
 }
 
 variable "metric_retention_days" {
   default     = 0
+  description = "Metric policy days"
   type        = number
-  description = "Retention policy days"
 }
 
 variable "destination_type" {
   type        = string
-  default     = "Dedicated"
   description = "Log analytics destination type"
+  default     = "Dedicated"
 }

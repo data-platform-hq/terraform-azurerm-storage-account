@@ -1,5 +1,5 @@
 resource "azurerm_monitor_diagnostic_setting" "monitoring_storage" {
-  for_each = {for k,v in var.log_analytics_workspace : k => v}
+  for_each = { for k, v in var.log_analytics_workspace : k => v }
 
   name                           = "monitoring-${var.project}-${var.env}-${var.location}"
   target_resource_id             = azurerm_storage_account.this.id
@@ -20,11 +20,11 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_storage" {
 }
 
 resource "azurerm_monitor_diagnostic_setting" "monitoring_blob" {
-  for_each = {for k,v in var.log_analytics_workspace : k => v}
+  for_each = { for k, v in var.log_analytics_workspace : k => v }
 
-  name                           = "monitoring-${var.project}-${var.env}-${var.location}"
-  target_resource_id             = "${azurerm_storage_account.this.id}/blobServices/default"
-  log_analytics_workspace_id     = each.value
+  name                       = "monitoring-${var.project}-${var.env}-${var.location}"
+  target_resource_id         = "${azurerm_storage_account.this.id}/blobServices/default"
+  log_analytics_workspace_id = each.value
 
   dynamic "log" {
     for_each = var.log_category_list
@@ -53,7 +53,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_blob" {
 }
 
 resource "azurerm_monitor_diagnostic_setting" "monitoring_tableServices" {
-  for_each = {for k,v in var.log_analytics_workspace : k => v}
+  for_each = { for k, v in var.log_analytics_workspace : k => v }
 
   name                           = "monitoring-${var.project}-${var.env}-${var.location}"
   target_resource_id             = "${azurerm_storage_account.this.id}/tableServices/default"
