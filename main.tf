@@ -26,42 +26,6 @@ resource "azurerm_storage_account" "this" {
   lifecycle { prevent_destroy = false }
 }
 
-data "azurerm_storage_account_sas" "this" {
-  connection_string = azurerm_storage_account.this.primary_connection_string
-  https_only        = true
-
-  resource_types {
-    service   = true
-    container = true
-    object    = true
-  }
-
-  services {
-    blob  = true
-    file  = true
-    queue = true
-    table = true
-  }
-
-  permissions {
-    add     = true
-    create  = true
-    delete  = true
-    list    = true
-    process = true
-    read    = true
-    update  = true
-    write   = true
-    tag     = true
-    filter  = true
-  }
-
-  start  = var.sas_start_date
-  expiry = var.sas_expiration_date
-
-  depends_on = [azurerm_storage_account.this]
-}
-
 resource "azurerm_role_assignment" "this" {
   for_each = {
     for permission in var.permissions : "${permission.object_id}-${permission.role}" => permission
