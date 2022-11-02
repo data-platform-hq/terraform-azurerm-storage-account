@@ -67,6 +67,6 @@ data "azurerm_storage_account_sas" "this" {
     filter  = true
   }
 
-  start  = "2022-06-21T00:00:00Z"
+  start  = var.sas_start_date
   expiry = var.sas_expiration_date
 }

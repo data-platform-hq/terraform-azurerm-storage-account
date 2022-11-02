@@ -22,3 +22,8 @@ output "primary_key" {
   value       = azurerm_storage_account.this.primary_access_key
   description = "Access key for Blob Storage"
 }
+
+output "sas_url_query_string" {
+  value = azurerm_storage_account_sas.this.sas
+  description = "The computed Account Shared Access Signature (SAS)"
+}

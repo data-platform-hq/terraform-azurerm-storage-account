@@ -58,6 +58,7 @@ No modules.
 | <a name="input_destination_type"></a> [destination\_type](#input\_destination\_type) | Log analytics destination type | `string` | `Dedicated` | no |
 | <a name="input_network_rules"></a> [network\_rules](#input\_network\_rules) | List of network rules maps | `list(any)` | `[]` | no |
 | <a name="input_sas_expiration_date"></a> [sas\_expiration\_date](#input\_sas\_expiration\_date) | This token is used by Storage Account linked service for Snowflake and it is expiring on certain date | `string` | n/a | yes |
+| <a name="input_sas_start_date"></a> [sas\_start\_date](#input\_sas\_start\_date) | This token is used by Storage Account linked service for Snowflake and it is start on certain date | `string` | "2022-06-21T00:00:00Z" | yes |
 
 ## Outputs
 

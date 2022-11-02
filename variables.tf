@@ -25,6 +25,13 @@ variable "sas_expiration_date" {
 }
 
 # Optional
+
+variable "sas_start_date" {
+  type        = string
+  description = "This token is used by Storage Account linked service for Snowflake and it is start on certain date"
+  default     = "2022-06-21T00:00:00Z"
+}
+
 variable "prefix" {
   type        = string
   description = "Resource name prefix"
