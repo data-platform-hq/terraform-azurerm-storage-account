@@ -1,4 +1,4 @@
-resource "azurerm_monitor_diagnostic_setting" "monitoring_storage" {
+resource "azurerm_monitor_diagnostic_setting" "storage" {
   for_each = { for k, v in var.log_analytics_workspace : k => v }
 
   name                           = "monitoring-${var.project}-${var.env}-${var.location}"
@@ -19,7 +19,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_storage" {
   depends_on = [azurerm_storage_account.this]
 }
 
-resource "azurerm_monitor_diagnostic_setting" "monitoring_blob" {
+resource "azurerm_monitor_diagnostic_setting" "blob" {
   for_each = { for k, v in var.log_analytics_workspace : k => v }
 
   name                       = "monitoring-${var.project}-${var.env}-${var.location}"
@@ -52,7 +52,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_blob" {
   depends_on = [azurerm_storage_account.this]
 }
 
-resource "azurerm_monitor_diagnostic_setting" "monitoring_tables" {
+resource "azurerm_monitor_diagnostic_setting" "table" {
   for_each = { for k, v in var.log_analytics_workspace : k => v }
 
   name                           = "monitoring-${var.project}-${var.env}-${var.location}"
