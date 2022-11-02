@@ -86,12 +86,6 @@ variable "is_hns_enabled" {
   default     = true
 }
 
-variable "network_rules" {
-  type        = list(any)
-  description = "List of network rules maps"
-  default     = []
-}
-
 variable "tags" {
   type        = map(any)
   description = "A mapping of tags to assign to the resource"

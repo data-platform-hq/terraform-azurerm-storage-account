@@ -24,6 +24,6 @@ output "primary_key" {
 }
 
 output "sas_url_query_string" {
-  value = azurerm_storage_account_sas.this.sas
+  value = data.azurerm_storage_account_sas.this.sas
   description = "The computed Account Shared Access Signature (SAS)"
 }

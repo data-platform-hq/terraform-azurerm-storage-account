@@ -26,17 +26,6 @@ resource "azurerm_storage_account" "this" {
   lifecycle { prevent_destroy = false }
 }
 
-resource "azurerm_role_assignment" "this" {
-  for_each = {
-    for permission in var.permissions : "${permission.object_id}-${permission.role}" => permission
-    if permission.role != null
-  }
-
-  scope                = azurerm_storage_account.this.id
-  role_definition_name = each.value.role
-  principal_id         = each.value.object_id
-}
-
 data "azurerm_storage_account_sas" "this" {
   connection_string = azurerm_storage_account.this.primary_connection_string
   https_only        = true
@@ -69,4 +58,17 @@ data "azurerm_storage_account_sas" "this" {
 
   start  = var.sas_start_date
   expiry = var.sas_expiration_date
+
+  depends_on = [azurerm_storage_account.this]
+}
+
+resource "azurerm_role_assignment" "this" {
+  for_each = {
+    for permission in var.permissions : "${permission.object_id}-${permission.role}" => permission
+    if permission.role != null
+  }
+
+  scope                = azurerm_storage_account.this.id
+  role_definition_name = each.value.role
+  principal_id         = each.value.object_id
 }
