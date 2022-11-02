@@ -36,3 +36,37 @@ resource "azurerm_role_assignment" "this" {
   role_definition_name = each.value.role
   principal_id         = each.value.object_id
 }
+
+data "azurerm_storage_account_sas" "this" {
+  connection_string = azurerm_storage_account.this.primary_connection_string
+  https_only        = true
+
+  resource_types {
+    service   = true
+    container = true
+    object    = true
+  }
+
+  services {
+    blob  = true
+    file  = true
+    queue = true
+    table = true
+  }
+
+  permissions {
+    add     = true
+    create  = true
+    delete  = true
+    list    = true
+    process = true
+    read    = true
+    update  = true
+    write   = true
+    tag     = true
+    filter  = true
+  }
+
+  start  = "2022-06-21T00:00:00Z"
+  expiry = var.sas_expiration_date
+}

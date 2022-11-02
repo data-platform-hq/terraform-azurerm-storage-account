@@ -51,6 +51,13 @@ No modules.
 | <a name="input_suffix"></a> [suffix](#input\_suffix) | Resource name suffix | `string` | `""` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A mapping of tags to assign to the resource | `map(any)` | `{}` | no |
 | <a name="input_virtual_networks"></a> [virtual\_networks](#input\_virtual\_networks) | A list of resource ids for subnets | `list(string)` | `null` | no |
+| <a name="input_log_analytics_workspace"></a> [log_analytics\_workspace](#input\_log\_analytics\_workspace) | Log Analytics Workspace Name to ID map | `map(string)` | `{}` | no |
+| <a name="input_log_category_list"></a> [log\_category\_list](#input\_log\_category_list) | Log category list | `list(string)` |  <pre> [ <br> "StorageRead", <br> "StorageWrite", <br> "StorageDelete" <br> ] </pre> | no |
+| <a name="input_log_retention_days"></a> [log\_retention\_days](#input\_log\_retention\_days) | Retention log policy days | `number` | `0` | no |
+| <a name="input_metric_retention_days"></a> [metric\_retention\_days](#input\_metric\_retention\_days) | Metric policy days | `number` | `0` | no |
+| <a name="input_destination_type"></a> [destination\_type](#input\_destination\_type) | Log analytics destination type | `string` | `Dedicated` | no |
+| <a name="input_network_rules"></a> [network\_rules](#input\_network\_rules) | List of network rules maps | `list(any)` | `[]` | no |
+| <a name="input_sas_expiration_date"></a> [sas\_expiration\_date](#input\_sas\_expiration\_date) | This token is used by Storage Account linked service for Snowflake and it is expiring on certain date | `string` | n/a | yes |
 
 ## Outputs
 

@@ -19,6 +19,11 @@ variable "location" {
   description = "Azure location"
 }
 
+variable "sas_expiration_date" {
+  type        = string
+  description = "This token is used by Storage Account linked service for Snowflake and it is expiring on certain date"
+}
+
 # Optional
 variable "prefix" {
   type        = string
@@ -74,6 +79,12 @@ variable "is_hns_enabled" {
   default     = true
 }
 
+variable "network_rules" {
+  type        = list(any)
+  description = "List of network rules maps"
+  default     = []
+}
+
 variable "tags" {
   type        = map(any)
   description = "A mapping of tags to assign to the resource"
@@ -113,4 +124,38 @@ variable "permissions" {
       role      = null
     }
   ]
+}
+
+variable "log_analytics_workspace" {
+  type        = map(string)
+  description = "Log Analytics Workspace Name to ID map"
+  default     = {}
+}
+
+variable "log_category_list" {
+  type        = list(string)
+  description = "Log category list"
+  default = [
+    "StorageRead",
+    "StorageWrite",
+    "StorageDelete"
+  ]
+}
+
+variable "log_retention_days" {
+  default     = 0
+  description = "Retention log policy days"
+  type        = number
+}
+
+variable "metric_retention_days" {
+  default     = 0
+  description = "Metric policy days"
+  type        = number
+}
+
+variable "destination_type" {
+  type        = string
+  description = "Log analytics destination type"
+  default     = "Dedicated"
 }
