@@ -12,7 +12,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_storage" {
 
     retention_policy {
       days    = var.metric_retention_days
-      enabled = false
+      enabled = true
     }
   }
 
@@ -34,7 +34,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_blob" {
 
       retention_policy {
         days    = var.log_retention_days
-        enabled = false
+        enabled = true
       }
     }
   }
@@ -45,7 +45,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_blob" {
 
     retention_policy {
       days    = var.metric_retention_days
-      enabled = false
+      enabled = true
     }
   }
 
@@ -68,7 +68,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_tables" {
 
       retention_policy {
         days    = var.log_retention_days
-        enabled = false
+        enabled = true
       }
     }
   }
@@ -79,7 +79,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_tables" {
 
     retention_policy {
       days    = var.metric_retention_days
-      enabled = false
+      enabled = true
     }
   }
 

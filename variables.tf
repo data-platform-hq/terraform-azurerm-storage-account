@@ -132,13 +132,13 @@ variable "log_category_list" {
 }
 
 variable "log_retention_days" {
-  default     = 0
+  default     = 7
   description = "Retention log policy days"
   type        = number
 }
 
 variable "metric_retention_days" {
-  default     = 0
+  default     = 7
   description = "Metric policy days"
   type        = number
 }
