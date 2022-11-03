@@ -114,3 +114,37 @@ variable "permissions" {
     }
   ]
 }
+
+variable "log_analytics_workspace" {
+  type        = map(string)
+  description = "Log Analytics Workspace Name to ID map"
+  default     = {}
+}
+
+variable "log_category_list" {
+  type        = list(string)
+  description = "Log category list"
+  default = [
+    "StorageRead",
+    "StorageWrite",
+    "StorageDelete"
+  ]
+}
+
+variable "log_retention_days" {
+  default     = 7
+  description = "Retention log policy days"
+  type        = number
+}
+
+variable "metric_retention_days" {
+  default     = 7
+  description = "Metric policy days"
+  type        = number
+}
+
+variable "destination_type" {
+  type        = string
+  description = "Log analytics destination type"
+  default     = "Dedicated"
+}
