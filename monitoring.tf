@@ -26,11 +26,10 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_blob" {
   target_resource_id         = "${azurerm_storage_account.this.id}/blobServices/default"
   log_analytics_workspace_id = each.value
 
-  dynamic "log" {
+  dynamic "enabled_log" {
     for_each = var.log_category_list
     content {
-      category = log.value
-      enabled  = true
+      category = enabled_log.value
 
       retention_policy {
         days    = var.log_retention_days
@@ -60,11 +59,10 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_tables" {
   log_analytics_workspace_id     = each.value
   log_analytics_destination_type = var.destination_type
 
-  dynamic "log" {
+  dynamic "enabled_log" {
     for_each = var.log_category_list
     content {
-      category = log.value
-      enabled  = true
+      category = enabled_log.value
 
       retention_policy {
         days    = var.log_retention_days
