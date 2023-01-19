@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/data-platform-hq/terraform-azurerm-storage-account/compare/v1.0.2...v1.0.3) (2023-01-19)
+
+
+### Bug Fixes
+
+* replaced deprecated parameters ([297c363](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/297c3634cf993afb6a8179ed42f3d7d511b77431))
+
 ## [1.0.2](https://github.com/data-platform-hq/terraform-azurerm-storage-account/compare/v1.0.1...v1.0.2) (2022-11-03)
 
 
