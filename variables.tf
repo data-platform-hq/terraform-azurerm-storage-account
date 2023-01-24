@@ -1,4 +1,3 @@
-# Required
 variable "project" {
   type        = string
   description = "Project name"
@@ -19,7 +18,6 @@ variable "location" {
   description = "Azure location"
 }
 
-# Optional
 variable "prefix" {
   type        = string
   description = "Resource name prefix"
@@ -71,6 +69,12 @@ variable "min_tls_version" {
 variable "is_hns_enabled" {
   type        = bool
   description = "Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2: [true|false]"
+  default     = true
+}
+
+variable "allow_nested_items_to_be_public" {
+  type        = bool
+  description = "Allow or disallow nested items within this Account to opt into being public."
   default     = true
 }
 
