@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/data-platform-hq/terraform-azurerm-storage-account/compare/v1.0.3...v1.0.4) (2023-01-24)
+
+
+### Bug Fixes
+
+* added allow_nested_items_to_be_public parameter ([8dda1b4](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/8dda1b4d06400f9ba09d6a388933da5e8fd03205))
+
 ## [1.0.3](https://github.com/data-platform-hq/terraform-azurerm-storage-account/compare/v1.0.2...v1.0.3) (2023-01-19)
 
 
