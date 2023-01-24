@@ -5,16 +5,17 @@ locals {
 resource "azurerm_storage_account" "this" {
   name = substr(replace("${var.prefix}${var.project}${var.suffix}${var.env}${var.location}", "-", ""), 0, 24)
 
-  resource_group_name       = var.resource_group
-  location                  = var.location
-  account_kind              = var.account_kind
-  account_tier              = var.account_tier
-  access_tier               = var.access_tier
-  account_replication_type  = var.replication_type
-  is_hns_enabled            = var.is_hns_enabled
-  enable_https_traffic_only = var.enable_https_traffic_only
-  min_tls_version           = var.min_tls_version
-  tags                      = var.tags
+  resource_group_name             = var.resource_group
+  location                        = var.location
+  account_kind                    = var.account_kind
+  account_tier                    = var.account_tier
+  access_tier                     = var.access_tier
+  account_replication_type        = var.replication_type
+  is_hns_enabled                  = var.is_hns_enabled
+  enable_https_traffic_only       = var.enable_https_traffic_only
+  min_tls_version                 = var.min_tls_version
+  allow_nested_items_to_be_public = var.allow_nested_items_to_be_public
+  tags                            = var.tags
 
   network_rules {
     default_action             = var.default_action
