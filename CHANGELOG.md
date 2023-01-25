@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/data-platform-hq/terraform-azurerm-storage-account/compare/v1.0.4...v1.1.0) (2023-01-25)
+
+
+### Bug Fixes
+
+* formatting ([5ae2813](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/5ae281350ed4ed4c4c097979cd6760cad1dfc4bd))
+
+
+### Features
+
+* Added Blob CORS ([bc07bfb](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/bc07bfb4b87e314c2fde48cdadef232dfae2736d))
+
 ## [1.0.4](https://github.com/data-platform-hq/terraform-azurerm-storage-account/compare/v1.0.3...v1.0.4) (2023-01-24)
 
 
