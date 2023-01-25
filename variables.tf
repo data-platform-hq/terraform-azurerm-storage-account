@@ -161,6 +161,6 @@ variable "blob_cors_rules" {
     exposed_headers    = list(string)
     max_age_in_seconds = number
   }))
-  default = []
+  default     = []
   description = "List of Blob CORS rules"
 }
