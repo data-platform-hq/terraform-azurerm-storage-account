@@ -17,6 +17,19 @@ resource "azurerm_storage_account" "this" {
   allow_nested_items_to_be_public = var.allow_nested_items_to_be_public
   tags                            = var.tags
 
+  blob_properties {
+    dynamic "cors_rule" {
+      for_each = var.blob_cors_rules
+      content {
+        allowed_headers    = cors_rule.value.allowed_headers
+        allowed_methods    = cors_rule.value.allowed_methods
+        allowed_origins    = cors_rule.value.allowed_origins
+        exposed_headers    = cors_rule.value.exposed_headers
+        max_age_in_seconds = cors_rule.value.max_age_in_seconds
+      }
+    }
+  }
+
   network_rules {
     default_action             = var.default_action
     bypass                     = var.bypass
