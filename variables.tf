@@ -152,3 +152,15 @@ variable "destination_type" {
   description = "Log analytics destination type"
   default     = "Dedicated"
 }
+
+variable "blob_cors_rules" {
+  type = list(object({
+    allowed_headers    = list(string)
+    allowed_methods    = list(string)
+    allowed_origins    = list(string)
+    exposed_headers    = list(string)
+    max_age_in_seconds = number
+  }))
+  default = []
+  description = "List of Blob CORS rules"
+}
