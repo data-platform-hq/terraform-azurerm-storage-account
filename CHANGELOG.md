@@ -1,3 +1,17 @@
+# [1.2.0](https://github.com/data-platform-hq/terraform-azurerm-storage-account/compare/v1.1.0...v1.2.0) (2023-01-27)
+
+
+### Bug Fixes
+
+* formatting ([3155288](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/31552887f4c87ea135cb2bd4091ece637668afee))
+* updated provider version ([4fde2d6](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/4fde2d6d5e52d96efd60dfeba42d3e4b90d07d06))
+* updated Readme ([1d87209](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/1d87209abf67c02ce51bffdb1609a711bc499800))
+
+
+### Features
+
+* updated monitoring configuration ([139a7c5](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/139a7c5d209afb4f5a81a6bc00e278df2dae1634))
+
 # [1.1.0](https://github.com/data-platform-hq/terraform-azurerm-storage-account/compare/v1.0.4...v1.1.0) (2023-01-25)
 
 
