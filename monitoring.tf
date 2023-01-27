@@ -94,4 +94,3 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_file" {
     enabled  = true
   }
 }
-
