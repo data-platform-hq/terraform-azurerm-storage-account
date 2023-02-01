@@ -17,7 +17,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_storage" {
 
   metric {
     category = "Capacity"
-    enabled  = false
+    enabled  = true
     retention_policy {
       enabled = false
       days    = 0
@@ -54,7 +54,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_blob" {
 
   metric {
     category = "Capacity"
-    enabled  = false
+    enabled  = true
     retention_policy {
       enabled = false
       days    = 0
@@ -92,7 +92,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_tables" {
 
   metric {
     category = "Capacity"
-    enabled  = false
+    enabled  = true
     retention_policy {
       enabled = false
       days    = 0
@@ -130,7 +130,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_queue" {
 
   metric {
     category = "Capacity"
-    enabled  = false
+    enabled  = true
     retention_policy {
       enabled = false
       days    = 0
@@ -168,7 +168,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_file" {
 
   metric {
     category = "Capacity"
-    enabled  = false
+    enabled  = true
     retention_policy {
       enabled = false
       days    = 0
