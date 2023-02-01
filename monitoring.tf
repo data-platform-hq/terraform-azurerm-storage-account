@@ -9,6 +9,23 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_storage" {
   metric {
     category = "Transaction"
     enabled  = true
+    retention_policy {
+      enabled = false
+      days    = 0
+    }
+  }
+
+  metric {
+    category = "Capacity"
+    enabled  = false
+    retention_policy {
+      enabled = false
+      days    = 0
+    }
+  }
+
+  lifecycle {
+    ignore_changes = [log_analytics_destination_type]
   }
 }
 
@@ -29,6 +46,23 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_blob" {
   metric {
     category = "Transaction"
     enabled  = true
+    retention_policy {
+      enabled = false
+      days    = 0
+    }
+  }
+
+  metric {
+    category = "Capacity"
+    enabled  = false
+    retention_policy {
+      enabled = false
+      days    = 0
+    }
+  }
+
+  lifecycle {
+    ignore_changes = [log_analytics_destination_type]
   }
 }
 
@@ -50,6 +84,23 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_tables" {
   metric {
     category = "Transaction"
     enabled  = true
+    retention_policy {
+      enabled = false
+      days    = 0
+    }
+  }
+
+  metric {
+    category = "Capacity"
+    enabled  = false
+    retention_policy {
+      enabled = false
+      days    = 0
+    }
+  }
+
+  lifecycle {
+    ignore_changes = [log_analytics_destination_type]
   }
 }
 
@@ -71,6 +122,23 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_queue" {
   metric {
     category = "Transaction"
     enabled  = true
+    retention_policy {
+      enabled = false
+      days    = 0
+    }
+  }
+
+  metric {
+    category = "Capacity"
+    enabled  = false
+    retention_policy {
+      enabled = false
+      days    = 0
+    }
+  }
+
+  lifecycle {
+    ignore_changes = [log_analytics_destination_type]
   }
 }
 
@@ -92,5 +160,22 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_file" {
   metric {
     category = "Transaction"
     enabled  = true
+    retention_policy {
+      enabled = false
+      days    = 0
+    }
+  }
+
+  metric {
+    category = "Capacity"
+    enabled  = false
+    retention_policy {
+      enabled = false
+      days    = 0
+    }
+  }
+
+  lifecycle {
+    ignore_changes = [log_analytics_destination_type]
   }
 }
