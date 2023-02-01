@@ -1,3 +1,12 @@
+## [1.2.1](https://github.com/data-platform-hq/terraform-azurerm-storage-account/compare/v1.2.0...v1.2.1) (2023-02-01)
+
+
+### Bug Fixes
+
+* added default parameters to prevent useless output in terraform plan ([d347780](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/d347780954a0ed7cc0f2004f014aaae5a394fdc4))
+* enabled Capacity category ([b7df6ec](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/b7df6ec88c6d8318ad63c073ff05646b1309467b))
+* enabled Capacity category ([1c0338a](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/1c0338aed11f4dcca047a291acd073005d8f343e))
+
 # [1.2.0](https://github.com/data-platform-hq/terraform-azurerm-storage-account/compare/v1.1.0...v1.2.0) (2023-01-27)
 
 
