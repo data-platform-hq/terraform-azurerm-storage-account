@@ -135,6 +135,18 @@ variable "log_category_list" {
   ]
 }
 
+variable "log_retention_days" {
+  type        = number
+  description = "Log retention policy days. Setting this to 0 will retain the events indefinitely"
+  default     = 0
+}
+
+variable "metric_retention_days" {
+  type        = number
+  description = "Metric retention policy days. Setting this to 0 will retain the events indefinitely"
+  default     = 0
+}
+
 variable "destination_type" {
   type        = string
   description = "Log analytics destination type"

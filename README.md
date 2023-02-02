@@ -9,13 +9,13 @@ Terraform module for creation Azure Storage Account
 | Name                                                                      | Version    |
 |---------------------------------------------------------------------------|------------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0   |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm)       | >= 3.23.0  |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm)       | >= 3.40.0  |
 
 ## Providers
 
 | Name                                                           | Version |
 |----------------------------------------------------------------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm)  | 3.24.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm)  | 3.40.0 |
 
 ## Modules
 
@@ -60,6 +60,8 @@ No modules.
 | <a name="input_log_analytics_workspace"></a> [log_analytics\_workspace](#input\_log\_analytics\_workspace)                                | Log Analytics Workspace Name to ID map                                                                                                                  | `map(string)`       | `{}`                                                                                |    no    |
 | <a name="input_log_category_list"></a> [log\_category\_list](#input\_log\_category_list)                                                  | Log category list                                                                                                                                       | `list(string)`      | <pre> [ <br> "StorageRead", <br> "StorageWrite", <br> "StorageDelete" <br> ] </pre> |    no    |
 | <a name="input_destination_type"></a> [destination\_type](#input\_destination\_type)                                                      | Log analytics destination type                                                                                                                          | `string`            | `Dedicated`                                                                         |    no    |
+| <a name="input_log_retention_days"></a> [log\_retention\_days](#input\_log\_retention\_days)                                              | Log retention policy days. Setting this to 0 will retain the events indefinitely                                                                        | `number`            | `0`                                                                                 |    no    |
+| <a name="input_metric_retention_days"></a> [metric\_retention\_days](#input\_metric\_retention\_days)                                     | Metric retention policy days. Setting this to 0 will retain the events indefinitely                                                                     | `number`            | `0`                                                                                 |    no    |
 | <a name="input_blob_cors_rules"></a> [blob\_cors\_rules](#input\_blob\_cors\_rules)                                                       | List of Blob CORS rules                                                                                                                                 | `list(object({}))`  | `[]`                                                                                |    no    |
 
 

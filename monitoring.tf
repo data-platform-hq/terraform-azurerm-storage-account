@@ -1,5 +1,5 @@
 resource "azurerm_monitor_diagnostic_setting" "monitoring_storage" {
-  for_each = { for k, v in var.log_analytics_workspace : k => v }
+  for_each = var.log_analytics_workspace
 
   name                           = "monitoring-${var.project}-${var.env}-${var.location}"
   target_resource_id             = azurerm_storage_account.this.id
@@ -11,7 +11,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_storage" {
     enabled  = true
     retention_policy {
       enabled = false
-      days    = 0
+      days    = var.metric_retention_days
     }
   }
 
@@ -20,7 +20,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_storage" {
     enabled  = true
     retention_policy {
       enabled = false
-      days    = 0
+      days    = var.metric_retention_days
     }
   }
 
@@ -30,7 +30,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_storage" {
 }
 
 resource "azurerm_monitor_diagnostic_setting" "monitoring_blob" {
-  for_each = { for k, v in var.log_analytics_workspace : k => v }
+  for_each = var.log_analytics_workspace
 
   name                       = "monitoring-${var.project}-${var.env}-${var.location}"
   target_resource_id         = "${azurerm_storage_account.this.id}/blobServices/default"
@@ -40,6 +40,10 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_blob" {
     for_each = var.log_category_list
     content {
       category = enabled_log.value
+      retention_policy {
+        enabled = true
+        days    = var.log_retention_days
+      }
     }
   }
 
@@ -48,7 +52,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_blob" {
     enabled  = true
     retention_policy {
       enabled = false
-      days    = 0
+      days    = var.metric_retention_days
     }
   }
 
@@ -57,7 +61,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_blob" {
     enabled  = true
     retention_policy {
       enabled = false
-      days    = 0
+      days    = var.metric_retention_days
     }
   }
 
@@ -67,7 +71,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_blob" {
 }
 
 resource "azurerm_monitor_diagnostic_setting" "monitoring_tables" {
-  for_each = { for k, v in var.log_analytics_workspace : k => v }
+  for_each = var.log_analytics_workspace
 
   name                           = "monitoring-${var.project}-${var.env}-${var.location}"
   target_resource_id             = "${azurerm_storage_account.this.id}/tableServices/default"
@@ -78,6 +82,10 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_tables" {
     for_each = var.log_category_list
     content {
       category = enabled_log.value
+      retention_policy {
+        enabled = true
+        days    = var.log_retention_days
+      }
     }
   }
 
@@ -86,7 +94,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_tables" {
     enabled  = true
     retention_policy {
       enabled = false
-      days    = 0
+      days    = var.metric_retention_days
     }
   }
 
@@ -95,7 +103,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_tables" {
     enabled  = true
     retention_policy {
       enabled = false
-      days    = 0
+      days    = var.metric_retention_days
     }
   }
 
@@ -105,7 +113,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_tables" {
 }
 
 resource "azurerm_monitor_diagnostic_setting" "monitoring_queue" {
-  for_each = { for k, v in var.log_analytics_workspace : k => v }
+  for_each = var.log_analytics_workspace
 
   name                           = "monitoring-${var.project}-${var.env}-${var.location}"
   target_resource_id             = "${azurerm_storage_account.this.id}/queueServices/default"
@@ -116,6 +124,10 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_queue" {
     for_each = var.log_category_list
     content {
       category = enabled_log.value
+      retention_policy {
+        enabled = true
+        days    = var.log_retention_days
+      }
     }
   }
 
@@ -124,7 +136,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_queue" {
     enabled  = true
     retention_policy {
       enabled = false
-      days    = 0
+      days    = var.metric_retention_days
     }
   }
 
@@ -133,7 +145,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_queue" {
     enabled  = true
     retention_policy {
       enabled = false
-      days    = 0
+      days    = var.metric_retention_days
     }
   }
 
@@ -143,7 +155,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_queue" {
 }
 
 resource "azurerm_monitor_diagnostic_setting" "monitoring_file" {
-  for_each = { for k, v in var.log_analytics_workspace : k => v }
+  for_each = var.log_analytics_workspace
 
   name                           = "monitoring-${var.project}-${var.env}-${var.location}"
   target_resource_id             = "${azurerm_storage_account.this.id}/fileServices/default"
@@ -154,6 +166,10 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_file" {
     for_each = var.log_category_list
     content {
       category = enabled_log.value
+      retention_policy {
+        enabled = true
+        days    = var.log_retention_days
+      }
     }
   }
 
@@ -161,8 +177,8 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_file" {
     category = "Transaction"
     enabled  = true
     retention_policy {
-      enabled = false
-      days    = 0
+      enabled = true
+      days    = var.metric_retention_days
     }
   }
 
@@ -170,8 +186,8 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_file" {
     category = "Capacity"
     enabled  = true
     retention_policy {
-      enabled = false
-      days    = 0
+      enabled = true
+      days    = var.metric_retention_days
     }
   }
 
