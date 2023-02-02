@@ -11,7 +11,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_storage" {
     enabled  = true
     retention_policy {
       enabled = false
-      days    = var.metric_retention_days
+      days    = 0
     }
   }
 
@@ -20,7 +20,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_storage" {
     enabled  = true
     retention_policy {
       enabled = false
-      days    = var.metric_retention_days
+      days    = 0
     }
   }
 
@@ -40,10 +40,6 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_blob" {
     for_each = var.log_category_list
     content {
       category = enabled_log.value
-      retention_policy {
-        enabled = true
-        days    = var.log_retention_days
-      }
     }
   }
 
@@ -52,7 +48,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_blob" {
     enabled  = true
     retention_policy {
       enabled = false
-      days    = var.metric_retention_days
+      days    = 0
     }
   }
 
@@ -61,7 +57,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_blob" {
     enabled  = true
     retention_policy {
       enabled = false
-      days    = var.metric_retention_days
+      days    = 0
     }
   }
 
@@ -82,10 +78,6 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_tables" {
     for_each = var.log_category_list
     content {
       category = enabled_log.value
-      retention_policy {
-        enabled = true
-        days    = var.log_retention_days
-      }
     }
   }
 
@@ -94,7 +86,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_tables" {
     enabled  = true
     retention_policy {
       enabled = false
-      days    = var.metric_retention_days
+      days    = 0
     }
   }
 
@@ -103,7 +95,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_tables" {
     enabled  = true
     retention_policy {
       enabled = false
-      days    = var.metric_retention_days
+      days    = 0
     }
   }
 
@@ -124,10 +116,6 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_queue" {
     for_each = var.log_category_list
     content {
       category = enabled_log.value
-      retention_policy {
-        enabled = true
-        days    = var.log_retention_days
-      }
     }
   }
 
@@ -136,7 +124,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_queue" {
     enabled  = true
     retention_policy {
       enabled = false
-      days    = var.metric_retention_days
+      days    = 0
     }
   }
 
@@ -145,7 +133,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_queue" {
     enabled  = true
     retention_policy {
       enabled = false
-      days    = var.metric_retention_days
+      days    = 0
     }
   }
 
@@ -166,10 +154,6 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_file" {
     for_each = var.log_category_list
     content {
       category = enabled_log.value
-      retention_policy {
-        enabled = true
-        days    = var.log_retention_days
-      }
     }
   }
 
@@ -177,8 +161,8 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_file" {
     category = "Transaction"
     enabled  = true
     retention_policy {
-      enabled = true
-      days    = var.metric_retention_days
+      enabled = false
+      days    = 0
     }
   }
 
@@ -186,8 +170,8 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_file" {
     category = "Capacity"
     enabled  = true
     retention_policy {
-      enabled = true
-      days    = var.metric_retention_days
+      enabled = false
+      days    = 0
     }
   }
 
