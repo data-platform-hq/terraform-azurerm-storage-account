@@ -1,3 +1,11 @@
+## [1.2.2](https://github.com/data-platform-hq/terraform-azurerm-storage-account/compare/v1.2.1...v1.2.2) (2023-02-02)
+
+
+### Bug Fixes
+
+* log retention policy ([4769a5b](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/4769a5ba298e23ba5579fc7e36fbf14f290c9b3d))
+* retention set to 0; updated required provider version ([0f6866d](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/0f6866d5c27bd76060f381d4c682f3524e97fd7b))
+
 ## [1.2.1](https://github.com/data-platform-hq/terraform-azurerm-storage-account/compare/v1.2.0...v1.2.1) (2023-02-01)
 
 
