@@ -9,13 +9,13 @@ Terraform module for creation Azure Storage Account
 | Name                                                                      | Version    |
 |---------------------------------------------------------------------------|------------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0   |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm)       | >= 3.23.0  |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm)       | >= 3.40.0  |
 
 ## Providers
 
 | Name                                                           | Version |
 |----------------------------------------------------------------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm)  | 3.24.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm)  | 3.40.0 |
 
 ## Modules
 
@@ -27,11 +27,16 @@ No modules.
 |--------------------------------------------------------------------------------------------------------------------------------------------------|------|
 | [azurerm_role_assignment.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment)                  | resource |
 | [azurerm_storage_account.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account)                  | resource |
-| [monitor_diagnostic_setting.storage](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting) | resource |
-| [monitor_diagnostic_setting.blob](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting)    | resource |
-| [monitor_diagnostic_setting.table](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting)   | resource |
-| [monitor_diagnostic_setting.queue](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting)   | resource |
-| [monitor_diagnostic_setting.file](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting)    | resource |
+| [azurerm_monitor_diagnostic_categories.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/monitor_diagnostic_categories) | resource |
+| [azurerm_monitor_diagnostic_categories.monitoring_blob](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/monitor_diagnostic_categories) | resource |
+| [azurerm_monitor_diagnostic_categories.monitoring_tables](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/monitor_diagnostic_categories) | resource |
+| [azurerm_monitor_diagnostic_categories.monitoring_queue](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/monitor_diagnostic_categories) | resource |
+| [azurerm_monitor_diagnostic_categories.monitoring_file](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/monitor_diagnostic_categories) | resource |
+| [monitor_diagnostic_setting.monitoring_storage](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting) | resource |
+| [monitor_diagnostic_setting.monitoring_blob](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting)    | resource |
+| [monitor_diagnostic_setting.monitoring_tables](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting)   | resource |
+| [monitor_diagnostic_setting.monitoring_queue](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting)   | resource |
+| [monitor_diagnostic_setting.monitoring_file](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting)    | resource |
 
 ## Inputs
 
@@ -57,10 +62,9 @@ No modules.
 | <a name="input_suffix"></a> [suffix](#input\_suffix)                                                                                      | Resource name suffix                                                                                                                                    | `string`            | `""`                                                                                |    no    |
 | <a name="input_tags"></a> [tags](#input\_tags)                                                                                            | A mapping of tags to assign to the resource                                                                                                             | `map(any)`          | `{}`                                                                                |    no    |
 | <a name="input_virtual_networks"></a> [virtual\_networks](#input\_virtual\_networks)                                                      | A list of resource ids for subnets                                                                                                                      | `list(string)`      | `null`                                                                              |    no    |
-| <a name="input_log_analytics_workspace"></a> [log_analytics\_workspace](#input\_log\_analytics\_workspace)                                | Log Analytics Workspace Name to ID map                                                                                                                  | `map(string)`       | `{}`                                                                                |    no    |
-| <a name="input_log_category_list"></a> [log\_category\_list](#input\_log\_category_list)                                                  | Log category list                                                                                                                                       | `list(string)`      | <pre> [ <br> "StorageRead", <br> "StorageWrite", <br> "StorageDelete" <br> ] </pre> |    no    |
-| <a name="input_destination_type"></a> [destination\_type](#input\_destination\_type)                                                      | Log analytics destination type                                                                                                                          | `string`            | `Dedicated`                                                                         |    no    |
-| <a name="input_blob_cors_rules"></a> [blob\_cors\_rules](#input\_blob\_cors\_rules)                                                       | List of Blob CORS rules                                                                                                                                 | `list(object({}))`  | `[]`                                                                                |    no    |
+| <a name="input_log_analytics_workspace"></a> [log_analytics\_workspace](#input\_log\_analytics\_workspace) | Log Analytics Workspace Name to ID map    | `map(string)`       | `{}`   |    no    |
+| <a name="input_analytics_destination_type"></a> [analytics\_destination\_type](#input\_analytics\_destination\_type)| Log analytics destination type | `string` |  `Dedicated`   |    no    |
+| <a name="input_blob_cors_rules"></a> [blob\_cors\_rules](#input\_blob\_cors\_rules) | List of Blob CORS rules | `list(object({}))`  | `[]` |    no    |
 
 
 ## Outputs

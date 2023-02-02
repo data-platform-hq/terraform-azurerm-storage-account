@@ -125,17 +125,7 @@ variable "log_analytics_workspace" {
   default     = {}
 }
 
-variable "log_category_list" {
-  type        = list(string)
-  description = "Log category list"
-  default = [
-    "StorageRead",
-    "StorageWrite",
-    "StorageDelete"
-  ]
-}
-
-variable "destination_type" {
+variable "analytics_destination_type" {
   type        = string
   description = "Log analytics destination type"
   default     = "Dedicated"
