@@ -6,16 +6,18 @@ Terraform module for creation Azure Storage Account
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
-| Name                                                                      | Version    |
-|---------------------------------------------------------------------------|------------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0   |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm)       | >= 3.40.0  |
+| Name                                                                      | Version   |
+| ------------------------------------------------------------------------- | --------- |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0  |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm)       | >= 3.40.0 |
+| <a name="requirement_random"></a> [random](#requirement\_random)          | >= 3.4.3  |
 
 ## Providers
 
-| Name                                                           | Version |
-|----------------------------------------------------------------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm)  | 3.40.0 |
+| Name                                                          | Version   |
+| ------------------------------------------------------------- | --------- |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | >= 3.40.0 |
+| <a name="provider_random"></a> [random](#provider\_random)    | >= 3.4.3  |
 
 ## Modules
 
@@ -23,8 +25,9 @@ No modules.
 
 ## Resources
 
-| Name                                                                                                                                             | Type |
-|--------------------------------------------------------------------------------------------------------------------------------------------------|------|
+| Name                                                                                                                                             | Type     |
+| ------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
+| [random_integer.storage_suffix](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/integer)                          | resource |
 | [azurerm_role_assignment.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment)                  | resource |
 | [azurerm_storage_account.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account)                  | resource |
 | [monitor_diagnostic_setting.storage](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting) | resource |
@@ -36,7 +39,7 @@ No modules.
 ## Inputs
 
 | Name                                                                                                                                      | Description                                                                                                                                             | Type                | Default                                                                             | Required |
-|-------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|-------------------------------------------------------------------------------------|:--------:|
+| ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ----------------------------------------------------------------------------------- | :------: |
 | <a name="input_access_tier"></a> [access\_tier](#input\_access\_tier)                                                                     | The access tier for BlobStorage, FileStorage and StorageV2                                                                                              | `string`            | `"Hot"`                                                                             |    no    |
 | <a name="input_account_kind"></a> [account\_kind](#input\_account\_kind)                                                                  | Kind of account. [BlobStorage\BlockBlobStorage\FileStorage\Storage\ StorageV2]                                                                          | `string`            | `"StorageV2"`                                                                       |    no    |
 | <a name="input_account_tier"></a> [account\_tier](#input\_account\_tier)                                                                  | Tier to use for this storage account: [Standard\Premium]                                                                                                | `string`            | `"Standard"`                                                                        |    no    |
@@ -66,7 +69,7 @@ No modules.
 ## Outputs
 
 | Name                                                                                                    | Description                                              |
-|---------------------------------------------------------------------------------------------------------|----------------------------------------------------------|
+| ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
 | <a name="output_id"></a> [id](#output\_id)                                                              | Storage account ID                                       |
 | <a name="output_name"></a> [name](#output\_name)                                                        | Storage account name                                     |
 | <a name="output_primary_blob_endpoint"></a> [primary\_blob\_endpoint](#output\_primary\_blob\_endpoint) | The endpoint URL for DFS storage in the primary location |
