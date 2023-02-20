@@ -2,8 +2,13 @@ locals {
   ip_rules = var.ip_rules == null ? null : values(var.ip_rules)
 }
 
+resource "random_integer" "storage_suffix" {
+  min = 10
+  max = 99
+}
+
 resource "azurerm_storage_account" "this" {
-  name = substr(replace("${var.prefix}${var.project}${var.suffix}${var.env}${var.location}", "-", ""), 0, 24)
+  name = join("", [substr(replace("${var.prefix}${var.project}${var.suffix}${var.env}${var.location}", "-", ""), 0, 22), random_integer.storage_suffix.result])
 
   resource_group_name             = var.resource_group
   location                        = var.location
