@@ -1,3 +1,13 @@
+## [1.2.3](https://github.com/data-platform-hq/terraform-azurerm-storage-account/compare/v1.2.2...v1.2.3) (2023-02-20)
+
+
+### Bug Fixes
+
+* added numbered suffix for storage account name ([a145ce8](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/a145ce889351d9d0c6aa9639eb0dfe3a0607354e))
+* added random provider into versions.tf ([cd5e6d7](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/cd5e6d746ba2291e7558265932d1a05ceaaa20ff))
+* changed order of functions in storage account name ([18f044d](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/18f044d1ddaad1e0fd2a8bbc57ba53718d185a48))
+* fixed typo ([7ebd286](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/7ebd2864cd0b58858a5736f8e2e30affce2bbeaf))
+
 ## [1.2.2](https://github.com/data-platform-hq/terraform-azurerm-storage-account/compare/v1.2.1...v1.2.2) (2023-02-02)
 
 
