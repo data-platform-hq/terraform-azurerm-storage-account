@@ -8,8 +8,7 @@ resource "random_integer" "storage_suffix" {
 }
 
 resource "azurerm_storage_account" "this" {
-  # name = replace(join("", [substr("${var.prefix}${var.project}${var.suffix}${var.env}${var.location}", 0, 22), random_integer.storage_suffix.result]), "-", "")
-  name = join("", substr(replace("${var.prefix}${var.project}${var.suffix}${var.env}${var.location}", "-", ""), 0, 22), random_integer.storage_suffix.result)
+  name = join("", [substr(replace("${var.prefix}${var.project}${var.suffix}${var.env}${var.location}", "-", ""), 0, 22), random_integer.storage_suffix.result])
 
   resource_group_name             = var.resource_group
   location                        = var.location
