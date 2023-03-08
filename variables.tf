@@ -24,12 +24,6 @@ variable "custom_storage_account_name" {
   default     = null
 }
 
-variable "custom_diagnostics_name" {
-  type        = string
-  description = "Custom name for Diagnostic Settings that monitors Storage Account sub-resources"
-  default     = null
-}
-
 variable "prefix" {
   type        = string
   description = "Resource name prefix"
