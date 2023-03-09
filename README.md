@@ -10,14 +10,12 @@ Terraform module for creation Azure Storage Account
 | ------------------------------------------------------------------------- | --------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0  |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm)       | >= 3.40.0 |
-| <a name="requirement_random"></a> [random](#requirement\_random)          | >= 3.4.3  |
 
 ## Providers
 
 | Name                                                          | Version   |
 | ------------------------------------------------------------- | --------- |
 | <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | >= 3.40.0 |
-| <a name="provider_random"></a> [random](#provider\_random)    | >= 3.4.3  |
 
 ## Modules
 
@@ -27,7 +25,6 @@ No modules.
 
 | Name                                                                                                                                             | Type     |
 | ------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
-| [random_integer.storage_suffix](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/integer)                          | resource |
 | [azurerm_role_assignment.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment)                  | resource |
 | [azurerm_storage_account.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account)                  | resource |
 | [monitor_diagnostic_setting.storage](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting) | resource |
@@ -50,6 +47,8 @@ No modules.
 | <a name="input_ip_rules"></a> [ip\_rules](#input\_ip\_rules)                                                                              | Map of IP addresses permitted to access storage account                                                                                                 | `map(string)`       | `null`                                                                              |    no    |
 | <a name="input_is_hns_enabled"></a> [is\_hns\_enabled](#input\_is\_hns\_enabled)                                                          | Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2: [true\false]                                                    | `bool`              | `true`                                                                              |    no    |
 | <a name="input_location"></a> [location](#input\_location)                                                                                | Azure location                                                                                                                                          | `string`            | n/a                                                                                 |   yes    |
+| <a name="input_custom_storage_account_name"></a> [custom\_storage\_account\_name](#input\_custom\_storage\_account\_name)                 | Specifies the name of the storage account                                                                                                               | `string`            | `null`                                                                              |    no    |
+| <a name="input_custom_diagnostics_name"></a> [custom\_diagnostics\_name](#input\_custom\_diagnostics\_name)                               | Custom name for Diagnostic Settings that monitors Storage Account sub-resources                                                                         | `string`            | `null`                                                                              |    no    |
 | <a name="input_min_tls_version"></a> [min\_tls\_version](#input\_min\_tls\_version)                                                       | The minimum supported TLS version for the storage account: [TLS1\_0\ TLS1\_1\ TLS1\_2]                                                                  | `string`            | `"TLS1_2"`                                                                          |    no    |
 | <a name="input_allow_nested_items_to_be_public"></a> [allow\_nested\_items\_to\_be\_public](#input\_allow\_nested\_items\_to\_be\_public) | Allow or disallow nested items within this Account to opt into being public.                                                                            | `bool`              | `true`                                                                              |    no    |
 | <a name="input_permissions"></a> [permissions](#input\_permissions)                                                                       | Storage permision map                                                                                                                                   | `list(map(string))` | <pre>[<br>  {<br>    "object_id": null,<br>    "role": null<br>  }<br>]</pre>       |    no    |
