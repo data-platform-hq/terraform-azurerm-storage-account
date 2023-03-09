@@ -1,7 +1,11 @@
+locals {
+  diagnostics_name = var.custom_diagnostics_name == null ? "${var.project}-${var.env}-${var.location}" : var.custom_diagnostics_name
+}
+
 resource "azurerm_monitor_diagnostic_setting" "monitoring_storage" {
   for_each = var.log_analytics_workspace
 
-  name                           = var.custom_storage_account_name == null ? "monitoring-${var.project}-${var.env}-${var.location}" : var.custom_storage_account_name
+  name                           = "storage-${local.diagnostics_name}"
   target_resource_id             = azurerm_storage_account.this.id
   log_analytics_workspace_id     = each.value
   log_analytics_destination_type = var.destination_type
@@ -32,7 +36,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_storage" {
 resource "azurerm_monitor_diagnostic_setting" "monitoring_blob" {
   for_each = var.log_analytics_workspace
 
-  name                       = var.custom_storage_account_name == null ? "monitoring-${var.project}-${var.env}-${var.location}" : var.custom_storage_account_name
+  name                       = "blob-${local.diagnostics_name}"
   target_resource_id         = "${azurerm_storage_account.this.id}/blobServices/default"
   log_analytics_workspace_id = each.value
 
@@ -69,7 +73,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_blob" {
 resource "azurerm_monitor_diagnostic_setting" "monitoring_tables" {
   for_each = var.log_analytics_workspace
 
-  name                           = var.custom_storage_account_name == null ? "monitoring-${var.project}-${var.env}-${var.location}" : var.custom_storage_account_name
+  name                           = "table-${local.diagnostics_name}"
   target_resource_id             = "${azurerm_storage_account.this.id}/tableServices/default"
   log_analytics_workspace_id     = each.value
   log_analytics_destination_type = var.destination_type
@@ -107,7 +111,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_tables" {
 resource "azurerm_monitor_diagnostic_setting" "monitoring_queue" {
   for_each = var.log_analytics_workspace
 
-  name                           = var.custom_storage_account_name == null ? "monitoring-${var.project}-${var.env}-${var.location}" : var.custom_storage_account_name
+  name                           = "queue-${local.diagnostics_name}"
   target_resource_id             = "${azurerm_storage_account.this.id}/queueServices/default"
   log_analytics_workspace_id     = each.value
   log_analytics_destination_type = var.destination_type
@@ -145,7 +149,7 @@ resource "azurerm_monitor_diagnostic_setting" "monitoring_queue" {
 resource "azurerm_monitor_diagnostic_setting" "monitoring_file" {
   for_each = var.log_analytics_workspace
 
-  name                           = var.custom_storage_account_name == null ? "monitoring-${var.project}-${var.env}-${var.location}" : var.custom_storage_account_name
+  name                           = "file-${local.diagnostics_name}"
   target_resource_id             = "${azurerm_storage_account.this.id}/fileServices/default"
   log_analytics_workspace_id     = each.value
   log_analytics_destination_type = var.destination_type
