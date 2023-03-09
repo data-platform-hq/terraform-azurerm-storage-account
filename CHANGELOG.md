@@ -1,3 +1,18 @@
+# [1.3.0](https://github.com/data-platform-hq/terraform-azurerm-storage-account/compare/v1.2.3...v1.3.0) (2023-03-09)
+
+
+### Bug Fixes
+
+* removed random resource and provider ([d0f0906](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/d0f09065859a1aad624085ebeaca8c465a40ac10))
+* removed unused variables ([d5d1d3b](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/d5d1d3b91328c4cd49e67a6027861830833a0181))
+* updated names for monitoring.tf resources ([603ab88](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/603ab88dad2ab2178612055df247834ce6ab4c17))
+* updated variables and README.md ([2481d8c](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/2481d8cf1f5cc6d0064a1d3835674642ff9b137a))
+
+
+### Features
+
+* added custom names for resources ([2f23d92](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/2f23d92c693a8724308ddc873bf96b923c980bae))
+
 ## [1.2.3](https://github.com/data-platform-hq/terraform-azurerm-storage-account/compare/v1.2.2...v1.2.3) (2023-02-20)
 
 
