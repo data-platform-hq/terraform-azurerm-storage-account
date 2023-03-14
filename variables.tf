@@ -20,13 +20,13 @@ variable "location" {
 
 variable "custom_storage_account_name" {
   type        = string
-  description = "Specifies the name of the storage account"
+  description = "Specifies the name of the storage account. The maximum permissible length of the name is 24 characters, including the prefix and suffix. If the total length of the name exceeds the permissible length, the name will be automatically shortened to 24 characters."
   default     = null
 }
 
 variable "custom_diagnostics_name" {
   type        = string
-  description = "Custom name for Diagnostic Settings that monitors Storage Account sub-resources"
+  description = "Custom name for Diagnostic Settings that monitors Storage Account sub-resources."
   default     = null
 }
 
