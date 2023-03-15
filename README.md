@@ -3,21 +3,28 @@ Terraform module for creation Azure Storage Account
 
 ## Usage
 This module provides an ability to deploy Azure Storage Account and configuring access to it.
-Note that if you destroy the resources and try to deploy the same instance (with the same name), it can only be done after 12 hours. Otherwise, change the value for custom_storage_account_name (if you're using one) or add/change values for the prefix/suffix variables.
-```
+Note that if you destroy the resources and try to deploy the same instance (with the same name), it can only be done after 6 hours. Otherwise, change the value for custom_storage_account_name (if you're using one) or add/change values for the prefix/suffix variables.
+```hcl
+data "azurerm_virtual_network" "example" {
+  name                = "example-law"
+  resource_group_name = "example-rg"
+  location            = "eastus"
+}
+
+
 module "storage_account" {
   source  = "data-platform-hq/storage-account/azurerm"
 
-  project          = "datahq"
-  env              = "example"
-  location         = "eastus"
-  resource_group   = "example_rg"
-  ip_rules         = {
-    "example-vpn-eu"   = "172.16.14.128/29"
-    "example-vpn-us"   = "172.16.119.208/28"
-    "example-vpn-ua"   = "172.16.141.72/29"
+  project                         = "datahq"
+  env                             = "example"
+  location                        = "eastus"
+  resource_group                  = "example_rg"
+  ip_rules                        = {
+    "example-vpn-eu"              = "172.16.14.128/29"
+    "example-vpn-us"              = "172.16.119.208/28"
+    "example-vpn-ua"              = "172.16.141.72/29"
   }
-  virtual_networks = ["example_vnet_id"]
+  virtual_networks                = [data.azurerm_virtual_network.example.id]
   allow_nested_items_to_be_public = false
   custom_storage_account_name     = "examplesaccname"
   custom_diagnostics_name         = "examplesacomponentsname"
