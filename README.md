@@ -11,7 +11,6 @@ data "azurerm_virtual_network" "example" {
   location            = "eastus"
 }
 
-
 module "storage_account" {
   source  = "data-platform-hq/storage-account/azurerm"
 
