@@ -6,7 +6,7 @@ This module provides an ability to deploy Azure Storage Account and configuring 
 Note that if you destroy the resources and try to deploy the same instance (with the same name), it can only be done after 6 hours. Otherwise, change the value for custom_storage_account_name (if you're using one) or add/change values for the prefix/suffix variables.
 ```hcl
 data "azurerm_virtual_network" "example" {
-  name                = "example-law"
+  name                = "example-vnet"
   resource_group_name = "example-rg"
   location            = "eastus"
 }
