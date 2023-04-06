@@ -126,7 +126,7 @@ variable "permissions" {
     object_id = string
     role      = string
   }))
-  description = "Storage permision set"
+  description = "Set of objects, where you can assign role to certain principal and name this assignment."
   default     = []
 }
 
