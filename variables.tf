@@ -121,14 +121,13 @@ variable "virtual_networks" {
 }
 
 variable "permissions" {
-  type        = list(map(string))
-  description = "Storage permision map"
-  default = [
-    {
-      object_id = null
-      role      = null
-    }
-  ]
+  type = set(object({
+    name      = string
+    object_id = string
+    role      = string
+  }))
+  description = "Set of objects, where you can assign role to certain principal and name this assignment."
+  default     = []
 }
 
 variable "log_analytics_workspace" {

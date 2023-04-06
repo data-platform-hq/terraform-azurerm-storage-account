@@ -42,7 +42,7 @@ resource "azurerm_storage_account" "this" {
 
 resource "azurerm_role_assignment" "this" {
   for_each = {
-    for permission in var.permissions : "${permission.object_id}-${permission.role}" => permission
+    for permission in var.permissions : replace("${permission.name}-${permission.role}", " ", "-") => permission
     if permission.role != null
   }
 
