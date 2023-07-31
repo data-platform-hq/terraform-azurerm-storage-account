@@ -127,7 +127,14 @@ variable "permissions" {
     role      = string
   }))
   description = "Set of objects, where you can assign role to certain principal and name this assignment."
-  default     = []
+  default = [
+    {
+      name = ""
+      #The Global Key Vault Principal Object ID
+      object_id = "12b3bdbf-e278-42d6-87af-4867477e2571"
+      role      = "Storage Account Key Operator Service Role"
+    },
+  ]
 }
 
 variable "log_analytics_workspace" {
@@ -162,4 +169,34 @@ variable "blob_cors_rules" {
   }))
   default     = []
   description = "List of Blob CORS rules"
+}
+
+variable "storages_key_manage_enabled" {
+  type        = bool
+  description = "Should Storage Account access key be managed by Key Vault?"
+  default     = true
+}
+
+variable "kv_managed_storage_account_name" {
+  type        = string
+  description = "The name which should be used for this Key Vault Managed Storage Account"
+  default     = ""
+}
+
+variable "key_vault_id" {
+  type        = string
+  description = "The ID of the Key Vault where the Managed Storage Account should be created"
+  default     = ""
+}
+
+variable "regenerate_key_automatically" {
+  type        = bool
+  description = "Should Storage Account access key be regenerated periodically?"
+  default     = true
+}
+
+variable "regeneration_period" {
+  type        = string
+  description = "How often Storage Account access key should be regenerated"
+  default     = "P1D"
 }

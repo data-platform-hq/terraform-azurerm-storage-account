@@ -50,3 +50,15 @@ resource "azurerm_role_assignment" "this" {
   role_definition_name = each.value.role
   principal_id         = each.value.object_id
 }
+
+resource "azurerm_key_vault_managed_storage_account" "this" {
+  for_each                     = var.storages_key_manage_enabled ? { "key1" : "", "key2" : "" } : {}
+  name                         = "${var.kv_managed_storage_account_name}${each.key}"
+  key_vault_id                 = var.key_vault_id
+  storage_account_id           = azurerm_storage_account.this.id
+  storage_account_key          = each.key
+  regenerate_key_automatically = var.regenerate_key_automatically
+  regeneration_period          = var.regeneration_period
+
+  depends_on = [azurerm_role_assignment.this]
+}
