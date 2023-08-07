@@ -53,7 +53,7 @@ resource "azurerm_role_assignment" "this" {
 
 resource "azurerm_key_vault_managed_storage_account" "this" {
   for_each                     = var.storages_key_manage_enabled ? { "key1" : "", "key2" : "" } : {}
-  name                         = "${var.kv_managed_storage_account_name}${each.key}"
+  name                         = each.key
   key_vault_id                 = var.key_vault_id
   storage_account_id           = azurerm_storage_account.this.id
   storage_account_key          = each.key
