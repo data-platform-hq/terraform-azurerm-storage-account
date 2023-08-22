@@ -20,13 +20,13 @@ variable "location" {
 
 variable "custom_storage_account_name" {
   type        = string
-  description = "Specifies the name of the storage account. The maximum permissible length of the name is 24 characters, including the prefix and suffix. If the total length of the name exceeds the permissible length, the name will be automatically shortened to 24 characters."
+  description = "Specifies the name of the storage account"
   default     = null
 }
 
 variable "custom_diagnostics_name" {
   type        = string
-  description = "Custom name for Diagnostic Settings that monitors Storage Account sub-resources."
+  description = "Custom name for Diagnostic Settings that monitors Storage Account sub-resources"
   default     = null
 }
 
@@ -133,7 +133,7 @@ variable "permissions" {
       #The Global Key Vault Principal Object ID
       object_id = "12b3bdbf-e278-42d6-87af-4867477e2571"
       role      = "Storage Account Key Operator Service Role"
-    },
+    }
   ]
 }
 
@@ -185,7 +185,7 @@ variable "kv_managed_storage_account_name" {
 
 variable "key_vault_id" {
   type        = string
-  description = "The ID of the Key Vault where the Managed Storage Account should be created"
+  description = "The ID of the Key Vault"
   default     = ""
 }
 
