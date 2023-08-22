@@ -173,14 +173,8 @@ variable "blob_cors_rules" {
 
 variable "storages_key_manage_enabled" {
   type        = bool
-  description = "Should Storage Account access key be managed by Key Vault?"
+  description = "Storages key manage enabled"
   default     = true
-}
-
-variable "kv_managed_storage_account_name" {
-  type        = string
-  description = "The name which should be used for this Key Vault Managed Storage Account"
-  default     = ""
 }
 
 variable "key_vault_id" {
@@ -191,12 +185,12 @@ variable "key_vault_id" {
 
 variable "regenerate_key_automatically" {
   type        = bool
-  description = "Should Storage Account access key be regenerated periodically?"
+  description = "Storage Account access key regenerated periodically switch"
   default     = true
 }
 
 variable "regeneration_period" {
   type        = string
-  description = "How often Storage Account access key should be regenerated"
+  description = "Storage Account access key regeneration frequency period"
   default     = "P1D"
 }
