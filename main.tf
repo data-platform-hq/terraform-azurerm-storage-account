@@ -1,6 +1,16 @@
 locals {
   ip_rules             = var.ip_rules == null ? null : values(var.ip_rules)
   storage_account_name = substr(replace(var.custom_storage_account_name == null ? "${var.prefix}${var.project}${var.suffix}${var.env}${var.location}" : "${var.prefix}${var.custom_storage_account_name}${var.suffix}", "-", ""), 0, 24)
+
+  # Object with parameters to assign required role to Global Azure Key Vault Principal Id to perform automated Storage Account Access Key rotations
+  global_key_vault_sp_role_assignment = var.key_vault_managed_storage_keys_enabled ? [{
+    name      = "global_key_vault"
+    object_id = "12b3bdbf-e278-42d6-87af-4867477e2571" # The Global Key Vault Principal Object ID
+    role      = "Storage Account Key Operator Service Role"
+  }] : []
+
+  # Creates composite list of objects that is used in role assignment creation
+  permissions_objects_list = concat(var.permissions, local.global_key_vault_sp_role_assignment)
 }
 
 resource "azurerm_storage_account" "this" {
@@ -42,7 +52,7 @@ resource "azurerm_storage_account" "this" {
 
 resource "azurerm_role_assignment" "this" {
   for_each = {
-    for permission in var.permissions : "${permission.object_id}-${permission.role}" => permission
+    for permission in local.permissions_objects_list : "${permission.object_id}-${permission.role}" => permission
     if permission.role != null
   }
 
@@ -51,8 +61,10 @@ resource "azurerm_role_assignment" "this" {
   principal_id         = each.value.object_id
 }
 
+# Creates automated Storage Account Access Key rotations using Key Vault.
 resource "azurerm_key_vault_managed_storage_account" "this" {
-  for_each                     = var.storages_key_manage_enabled ? { "key1" : "", "key2" : "" } : {}
+  for_each = var.key_vault_managed_storage_keys_enabled ? toset(["key1", "key2"]) : []
+
   name                         = each.key
   key_vault_id                 = var.key_vault_id
   storage_account_id           = azurerm_storage_account.this.id

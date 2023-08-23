@@ -121,20 +121,13 @@ variable "virtual_networks" {
 }
 
 variable "permissions" {
-  type = set(object({
+  type = list(object({
     name      = string
     object_id = string
     role      = string
   }))
   description = "Set of objects, where you can assign role to certain principal and name this assignment."
-  default = [
-    {
-      name = ""
-      #The Global Key Vault Principal Object ID
-      object_id = "12b3bdbf-e278-42d6-87af-4867477e2571"
-      role      = "Storage Account Key Operator Service Role"
-    }
-  ]
+  default     = []
 }
 
 variable "log_analytics_workspace" {
@@ -171,16 +164,16 @@ variable "blob_cors_rules" {
   description = "List of Blob CORS rules"
 }
 
-variable "storages_key_manage_enabled" {
+variable "key_vault_managed_storage_keys_enabled" {
   type        = bool
-  description = "Storages key manage enabled"
-  default     = true
+  description = "Boolean flag that determines whether Storage Account Access Keys are automatically managed and rotated by Key Vault"
+  default     = false
 }
 
 variable "key_vault_id" {
   type        = string
-  description = "The ID of the Key Vault"
-  default     = ""
+  description = "The ID of the Key Vault that manages Access Keys. Required if 'key_vault_managed_storage_keys_enabled' enabled"
+  default     = null
 }
 
 variable "regenerate_key_automatically" {
@@ -192,5 +185,5 @@ variable "regenerate_key_automatically" {
 variable "regeneration_period" {
   type        = string
   description = "Storage Account access key regeneration frequency period"
-  default     = "P1D"
+  default     = "P85D"
 }
