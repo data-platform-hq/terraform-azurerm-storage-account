@@ -20,13 +20,13 @@ variable "location" {
 
 variable "custom_storage_account_name" {
   type        = string
-  description = "Specifies the name of the storage account. The maximum permissible length of the name is 24 characters, including the prefix and suffix. If the total length of the name exceeds the permissible length, the name will be automatically shortened to 24 characters."
+  description = "Specifies the name of the storage account"
   default     = null
 }
 
 variable "custom_diagnostics_name" {
   type        = string
-  description = "Custom name for Diagnostic Settings that monitors Storage Account sub-resources."
+  description = "Custom name for Diagnostic Settings that monitors Storage Account sub-resources"
   default     = null
 }
 
@@ -121,7 +121,7 @@ variable "virtual_networks" {
 }
 
 variable "permissions" {
-  type = set(object({
+  type = list(object({
     name      = string
     object_id = string
     role      = string
@@ -162,4 +162,34 @@ variable "blob_cors_rules" {
   }))
   default     = []
   description = "List of Blob CORS rules"
+}
+
+variable "key_vault_managed_storage_keys_enabled" {
+  type        = bool
+  description = "Boolean flag that determines whether Storage Account Access Keys are automatically managed and rotated by Key Vault"
+  default     = false
+}
+
+variable "key_vault_id" {
+  type        = string
+  description = "The ID of the Key Vault"
+  default     = null
+}
+
+variable "key_vault_global_object_id" {
+  type        = string
+  description = "Azure Key Vault Global Object ID value"
+  default     = "12b3bdbf-e278-42d6-87af-4867477e2571"
+}
+
+variable "regenerate_key_automatically" {
+  type        = bool
+  description = "Storage Account access key regenerated periodically switch"
+  default     = true
+}
+
+variable "regeneration_period" {
+  type        = string
+  description = "Storage Account access key regeneration frequency period"
+  default     = "P85D"
 }

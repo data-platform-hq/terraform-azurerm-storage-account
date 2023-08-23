@@ -35,15 +35,15 @@ module "storage_account" {
 ## Requirements
 
 | Name                                                                      | Version   |
-| ------------------------------------------------------------------------- | --------- |
+|---------------------------------------------------------------------------|-----------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0  |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm)       | >= 3.40.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm)       | >= 3.69.0 |
 
 ## Providers
 
 | Name                                                          | Version   |
-| ------------------------------------------------------------- | --------- |
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | >= 3.40.0 |
+|---------------------------------------------------------------|-----------|
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | >= 3.69.0 |
 
 ## Modules
 
@@ -51,20 +51,22 @@ No modules.
 
 ## Resources
 
-| Name                                                                                                                                             | Type     |
-| ------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
-| [azurerm_role_assignment.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment)                  | resource |
-| [azurerm_storage_account.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account)                  | resource |
-| [monitor_diagnostic_setting.storage](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting) | resource |
-| [monitor_diagnostic_setting.blob](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting)    | resource |
-| [monitor_diagnostic_setting.table](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting)   | resource |
-| [monitor_diagnostic_setting.queue](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting)   | resource |
-| [monitor_diagnostic_setting.file](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting)    | resource |
+| Name                                                                                                                                                                | Type     |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
+| [azurerm_storage_account.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account)                                     | resource |
+| [azurerm_role_assignment.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment)                                     | resource |
+| [azurerm_key_vault_managed_storage_account.this](https://registry.terraform.io/providers/hashicorp/azurerm/3.62.1/docs/resources/key_vault_managed_storage_account) | resource |
+| [azurerm_monitor_diagnostic_setting.monitoring_storage](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting)                    | resource |
+| [azurerm_monitor_diagnostic_setting.monitoring_blob](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting)                       | resource |
+| [azurerm_monitor_diagnostic_setting.monitoring_tables](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting)                      | resource |
+| [azurerm_monitor_diagnostic_setting.monitoring_queue](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting)                      | resource |
+| [azurerm_monitor_diagnostic_setting.monitoring_file](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting)                       | resource |
+
 
 ## Inputs
 
 | Name                                                                                                                                      | Description                                                                                                                                                                                                                                                         | Type                                                                                                                 | Default                                                                             | Required |
-| ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | :------: |
+|-------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|:--------:|
 | <a name="input_access_tier"></a> [access\_tier](#input\_access\_tier)                                                                     | The access tier for BlobStorage, FileStorage and StorageV2                                                                                                                                                                                                          | `string`                                                                                                             | `"Hot"`                                                                             |    no    |
 | <a name="input_account_kind"></a> [account\_kind](#input\_account\_kind)                                                                  | Kind of account. [BlobStorage\BlockBlobStorage\FileStorage\Storage\ StorageV2]                                                                                                                                                                                      | `string`                                                                                                             | `"StorageV2"`                                                                       |    no    |
 | <a name="input_account_tier"></a> [account\_tier](#input\_account\_tier)                                                                  | Tier to use for this storage account: [Standard\Premium]                                                                                                                                                                                                            | `string`                                                                                                             | `"Standard"`                                                                        |    no    |
@@ -90,17 +92,21 @@ No modules.
 | <a name="input_log_analytics_workspace"></a> [log_analytics\_workspace](#input\_log\_analytics\_workspace)                                | Log Analytics Workspace Name to ID map                                                                                                                                                                                                                              | `map(string)`                                                                                                        | `{}`                                                                                |    no    |
 | <a name="input_log_category_list"></a> [log\_category\_list](#input\_log\_category_list)                                                  | Log category list                                                                                                                                                                                                                                                   | `list(string)`                                                                                                       | <pre> [ <br> "StorageRead", <br> "StorageWrite", <br> "StorageDelete" <br> ] </pre> |    no    |
 | <a name="input_destination_type"></a> [destination\_type](#input\_destination\_type)                                                      | Log analytics destination type                                                                                                                                                                                                                                      | `string`                                                                                                             | `Dedicated`                                                                         |    no    |
-| <a name="input_blob_cors_rules"></a> [blob\_cors\_rules](#input\_blob\_cors\_rules)                                                       | List of Blob CORS rules                                                                                                                                                                                                                                             | `list(object({}))`                                                                                                   | `[]`                                                                                |    no    |
-
+| <a name="input_blob_cors_rules"></a> [blob\_cors\_rules](#input\_blob\_cors\_rules)                                                       | List of Blob CORS rules | `list(object({}))` | `[]`                                                                                | no |
+| <a name="input_storages_key_manage_enabled"></a> [storages\_key\_manage\_enabled](#input\_storages\_key\_manage\_enabled)                 | Storages key manage enabled | `bool`| `false`                                                                             |    no    |
+| <a name="input_key_vault_id"></a> [key\_vault\_id](#input\_key\_vault\_id)                                                                | The ID of the Key Vault | `string` | `null`                                                                              | no |
+| <a name="input_key_vault_global_object_id"></a> [key\_vault\_global\_object\_id](#input\_key\_vault\_global\_object\_id)                  | Azure Key Vault Global Object ID value | `string` | `12b3bdbf-e278-42d6-87af-4867477e2571`                                              | no |
+| <a name="input_regenerate_key_automatically"></a> [regenerate\_key\_automatically](#input\_regenerate\_key\_automatically)                | Storage Account access key regenerated periodically switch| `bool`| `true`                                                                              |    no    |
+| <a name="input_regeneration_period"></a> [regeneration\_period](#input\_regeneration\_period)                                             | Storage Account access key regeneration frequency period| `string`| `"P85D"`                                                                            |    no    |
 
 ## Outputs
 
 | Name                                                                                                    | Description                                              |
-| ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+|---------------------------------------------------------------------------------------------------------|----------------------------------------------------------|
 | <a name="output_id"></a> [id](#output\_id)                                                              | Storage account ID                                       |
 | <a name="output_name"></a> [name](#output\_name)                                                        | Storage account name                                     |
-| <a name="output_primary_blob_endpoint"></a> [primary\_blob\_endpoint](#output\_primary\_blob\_endpoint) | The endpoint URL for DFS storage in the primary location |
 | <a name="output_primary_dfs_endpoint"></a> [primary\_dfs\_endpoint](#output\_primary\_dfs\_endpoint)    | The endpoint URL for DFS storage in the primary location |
+| <a name="output_primary_blob_endpoint"></a> [primary\_blob\_endpoint](#output\_primary\_blob\_endpoint) | The endpoint URL for blob storage in the primary location |
 | <a name="output_primary_key"></a> [primary\_key](#output\_primary\_key)                                 | Access key for Blob Storage                              |
 <!-- END_TF_DOCS -->
 
