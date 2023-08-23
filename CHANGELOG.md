@@ -1,3 +1,18 @@
+# [1.4.0](https://github.com/data-platform-hq/terraform-azurerm-storage-account/compare/v1.3.0...v1.4.0) (2023-08-23)
+
+
+### Bug Fixes
+
+* changed key name ([ad88e87](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/ad88e877241fa0b037a37dd06260f3ecc1160f3d))
+* changed version azure provider ([885d498](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/885d498c81f5cc3090803ae56ff154cafaf4d6bf))
+* fixed merge conf ([14b7cff](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/14b7cff850382e9ab416056d9a9093bff3f6fd25))
+
+
+### Features
+
+* added automatic access key rotation ([fe6f367](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/fe6f367fb5dfa83193350506fa7b2720515e36b7))
+* updated resources ([7717b48](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/7717b487dba2dfe75943f8e33a46c4c0a0c6dbb3))
+
 # [1.3.0](https://github.com/data-platform-hq/terraform-azurerm-storage-account/compare/v1.2.3...v1.3.0) (2023-03-09)
 
 
