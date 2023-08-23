@@ -176,6 +176,12 @@ variable "key_vault_id" {
   default     = null
 }
 
+variable "key_vault_global_object_id" {
+  type        = string
+  description = "Azure Key Vault Global Object ID value"
+  default     = "12b3bdbf-e278-42d6-87af-4867477e2571"
+}
+
 variable "regenerate_key_automatically" {
   type        = bool
   description = "Storage Account access key regenerated periodically switch"

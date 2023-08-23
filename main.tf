@@ -5,7 +5,7 @@ locals {
   # Object with parameters to assign required role to Global Azure Key Vault Principal Id to perform automated Storage Account Access Key rotations
   global_key_vault_sp_role_assignment = var.key_vault_managed_storage_keys_enabled ? [{
     name      = "global_key_vault"
-    object_id = "12b3bdbf-e278-42d6-87af-4867477e2571" # The Global Key Vault Principal Object ID
+    object_id = var.key_vault_global_object_id # The Global Key Vault Principal Object ID
     role      = "Storage Account Key Operator Service Role"
   }] : []
 
