@@ -172,7 +172,7 @@ variable "key_vault_managed_storage_keys_enabled" {
 
 variable "key_vault_id" {
   type        = string
-  description = "The ID of the Key Vault that manages Access Keys. Required if 'key_vault_managed_storage_keys_enabled' enabled"
+  description = "The ID of the Key Vault"
   default     = null
 }
 
