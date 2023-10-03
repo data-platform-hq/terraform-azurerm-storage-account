@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/data-platform-hq/terraform-azurerm-storage-account/compare/v1.4.0...v1.5.0) (2023-10-03)
+
+
+### Features
+
+* cmf encryption & encryption scope support ([493cdd6](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/493cdd641dc4e6368127dbbc9a6c87660f3b847f))
+
 # [1.4.0](https://github.com/data-platform-hq/terraform-azurerm-storage-account/compare/v1.3.0...v1.4.0) (2023-08-23)
 
 
