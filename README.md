@@ -53,9 +53,13 @@ No modules.
 
 | Name                                                                                                                                                                | Type     |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
+| [azurerm_client_config.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/client_config.html)                                 | data     |
 | [azurerm_storage_account.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account)                                     | resource |
 | [azurerm_role_assignment.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment)                                     | resource |
 | [azurerm_key_vault_managed_storage_account.this](https://registry.terraform.io/providers/hashicorp/azurerm/3.62.1/docs/resources/key_vault_managed_storage_account) | resource |
+| [azurerm_azurerm_key_vault_access_policy.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault_access_policy) | resource |
+| [azurerm_storage_encryption_scope.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account_customer_managed_key) | resource |
+| [azurerm_storage_account_customer_managed_key.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_encryption_scope) | resource |
 | [azurerm_monitor_diagnostic_setting.monitoring_storage](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting)                    | resource |
 | [azurerm_monitor_diagnostic_setting.monitoring_blob](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting)                       | resource |
 | [azurerm_monitor_diagnostic_setting.monitoring_tables](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting)                      | resource |
@@ -98,6 +102,15 @@ No modules.
 | <a name="input_key_vault_global_object_id"></a> [key\_vault\_global\_object\_id](#input\_key\_vault\_global\_object\_id)                  | Azure Key Vault Global Object ID value | `string` | `12b3bdbf-e278-42d6-87af-4867477e2571`                                              | no |
 | <a name="input_regenerate_key_automatically"></a> [regenerate\_key\_automatically](#input\_regenerate\_key\_automatically)                | Storage Account access key regenerated periodically switch| `bool`| `true`                                                                              |    no    |
 | <a name="input_regeneration_period"></a> [regeneration\_period](#input\_regeneration\_period)                                             | Storage Account access key regeneration frequency period| `string`| `"P85D"`                                                                            |    no    |
+| <a name="input_cmk_encryption_enabled"></a> [cmk\_encryption\_enabled](#input\_cmk\_encryption\_enabled)| Customer Managed Key encryption using Key Vault Key enabled | `bool`| `false`|    no    |
+| <a name="input_encryption_scope_enabled"></a> [encryption\_scope\_enabled](#input\_encryption\_scope\_enabled)| Storage encryption scope enabled | `bool`| `false`|    no    |
+| <a name="input_encryption_scope_source"></a> [encryption\_scope\_source](#input\_encryption\_scope\_source)| The source of the Storage Encryption Scope | `string`| Microsoft.KeyVault |    no    |
+| <a name="input_shared_access_key_enabled"></a> [shared\_access\_key\_enabled](#input\_shared\_access\_key\_enabled)| Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key | `bool`| `false`|    no    |
+| <a name="input_encryption_scope_infrastructure_encryption_required"></a> [encryption\_scope\_infrastructure\_encryption\_required](#input\_encryption\_scope\_infrastructure\_encryption\_required)| Encryption scope. Is a secondary layer of encryption with Platform Managed Keys | `bool`| `true`|    no    |
+| <a name="input_key_vault_key_name"></a> [key\_vault\_key\_name](#input\_key\_vault\_key\_name)| Key Vault Key Name used for CMK Encryption | `string`| null |    no    |
+| <a name="input_key_vault_key_id"></a> [key\_vault_key\_id](#input\_key\_vault_key\_id)| Key Vault Key Id used for Encryption Scope creation | `string`| null |    no    |
+| <a name="input_key_permissions"></a> [key\_permissions](#input\_key\_permissions)| List of KeyVault keys permissions | `list(string)` | <pre>[<br>"Get",<br>"List",<br>"WrapKey",<br>"UnwrapKey"<br>]</pre> |    no    |
+
 
 ## Outputs
 
@@ -108,6 +121,7 @@ No modules.
 | <a name="output_primary_dfs_endpoint"></a> [primary\_dfs\_endpoint](#output\_primary\_dfs\_endpoint)    | The endpoint URL for DFS storage in the primary location |
 | <a name="output_primary_blob_endpoint"></a> [primary\_blob\_endpoint](#output\_primary\_blob\_endpoint) | The endpoint URL for blob storage in the primary location |
 | <a name="output_primary_key"></a> [primary\_key](#output\_primary\_key)                                 | Access key for Blob Storage                              |
+| <a name="output_identity"></a> [identity](#output\_identity)                                 | List of User Assigned Managed Identity IDs |
 <!-- END_TF_DOCS -->
 
 ## License

@@ -167,7 +167,7 @@ variable "blob_cors_rules" {
 variable "key_vault_managed_storage_keys_enabled" {
   type        = bool
   description = "Boolean flag that determines whether Storage Account Access Keys are automatically managed and rotated by Key Vault"
-  default     = false
+  default     = true
 }
 
 variable "key_vault_id" {
@@ -192,4 +192,57 @@ variable "regeneration_period" {
   type        = string
   description = "Storage Account access key regeneration frequency period"
   default     = "P85D"
+}
+
+variable "cmk_encryption_enabled" {
+  type        = bool
+  description = "Customer Managed Key encryption using Key Vault Key enabled"
+  default     = false
+}
+
+variable "encryption_scope_enabled" {
+  type        = bool
+  description = "Storage encryption scope enabled"
+  default     = false
+}
+
+variable "encryption_scope_source" {
+  type        = string
+  description = "The source of the Storage Encryption Scope"
+  default     = "Microsoft.KeyVault"
+}
+
+variable "shared_access_key_enabled" {
+  type        = bool
+  description = "Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key"
+  default     = false
+}
+
+variable "encryption_scope_infrastructure_encryption_required" {
+  type        = bool
+  description = "Encryption scope. Is a secondary layer of encryption with Platform Managed Keys"
+  default     = true
+}
+
+variable "key_vault_key_name" {
+  type        = string
+  description = "Key Vault Key Name used for CMK Encryption"
+  default     = null
+}
+
+variable "key_vault_key_id" {
+  type        = string
+  description = "Key Vault Key Id used for Encryption Scope creation"
+  default     = null
+}
+
+variable "key_permissions" {
+  type        = list(string)
+  description = "List of KeyVault keys permissions"
+  default = [
+    "Get",
+    "List",
+    "WrapKey",
+    "UnwrapKey"
+  ]
 }
