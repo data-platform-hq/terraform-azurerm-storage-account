@@ -246,3 +246,33 @@ variable "key_permissions" {
     "UnwrapKey"
   ]
 }
+
+variable "versioning_enabled" {
+  type        = bool
+  description = "Boolean flag that determines whether versioning for storage account is enabled"
+  default     = false
+}
+
+variable "delete_retention_policy_enabled" {
+  type        = bool
+  description = "Soft delete enables you to recover blobs and directories"
+  default     = false
+}
+
+variable "delete_retention_policy_days" {
+  type        = string
+  description = "Soft delete duration in days to recover blobs and directories"
+  default     = 7
+}
+
+variable "container_delete_retention_policy_enabled" {
+  type        = bool
+  description = "Soft delete enables you to recover containers"
+  default     = false
+}
+
+variable "container_delete_retention_policy_days" {
+  type        = string
+  description = "Soft delete duration in days to recover container"
+  default     = 7
+}

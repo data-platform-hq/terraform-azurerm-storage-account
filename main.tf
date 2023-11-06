@@ -43,6 +43,23 @@ resource "azurerm_storage_account" "this" {
         allowed_origins    = cors_rule.value.allowed_origins
         exposed_headers    = cors_rule.value.exposed_headers
         max_age_in_seconds = cors_rule.value.max_age_in_seconds
+
+      }
+    }
+
+    versioning_enabled = var.versioning_enabled
+
+    dynamic "delete_retention_policy" {
+      for_each = var.delete_retention_policy_enabled ? [1] : []
+      content {
+        days = var.delete_retention_policy_days
+      }
+    }
+
+    dynamic "container_delete_retention_policy" {
+      for_each = var.container_delete_retention_policy_enabled ? [1] : []
+      content {
+        days = var.container_delete_retention_policy_days
       }
     }
   }
