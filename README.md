@@ -110,9 +110,11 @@ No modules.
 | <a name="input_key_vault_key_name"></a> [key\_vault\_key\_name](#input\_key\_vault\_key\_name)| Key Vault Key Name used for CMK Encryption | `string`| null |    no    |
 | <a name="input_key_vault_key_id"></a> [key\_vault_key\_id](#input\_key\_vault_key\_id)| Key Vault Key Id used for Encryption Scope creation | `string`| null |    no    |
 | <a name="input_key_permissions"></a> [key\_permissions](#input\_key\_permissions)| List of KeyVault keys permissions | `list(string)` | <pre>[<br>"Get",<br>"List",<br>"WrapKey",<br>"UnwrapKey"<br>]</pre> |    no    |
-| <a name="input_delete_retention_policy"></a> [delete\_retention\_policy](#input\_delete\_retention\_policy)| Soft delete enables you to recover blobs and directories | <pre>object({<br>  enable = optional(bool)<br>  days   = optional(number)<br>})</pre> | <pre>object({<br>  enable = optional(bool, true)<br>  days   = optional(number, 7)<br>})</pre> | no |
-| <a name="input_container_delete_retention_policy"></a> [container\_delete\_retention\_policy](#input\_container\_delete\_retention\_policy)| Soft delete enables you to recover containers | <pre>object({<br>  enable = optional(bool)<br>  days   = optional(number)<br>})</pre> | <pre>object({<br>  enable = optional(bool, true)<br>  days   = optional(number, 7)<br>})</pre> | no |
-
+| <a name="input_versioning_enabled"></a> [versioning\_enabled](#input\_versioning\_enabled)| Boolean flag that determines whether versioning for storage account is enabled | `bool` | false |    no    |
+| <a name="input_delete_retention_policy_enabled"></a> [delete\_retention\_policy\_enabled](#input\_delete\_retention\_policy\_enabled)| Soft delete enables you to recover blobs and directories | `bool` | false |    no    |
+| <a name="input_delete_retention_policy_days"></a> [delete\_retention\_policy\_days](#input\_delete\_retention\_policy\_days)| Soft delete duration in days to recover blobs and directories | `string` | "7" |    no    |
+| <a name="input_container_delete_retention_policy_enabled"></a> [container\_delete\_retention\_policy\_enabled](#input\_container\_delete\_retention\_policy\_enabled)| Soft delete enables you to recover containers | `bool` | false |    no    |
+| <a name="input_container_delete_retention_policy_days"></a> [container\_delete\_retention\_policy\_days](#input\_container\_delete\_retention\_policy\_days)| Soft delete duration in days to recover container | `string` | "7" |    no    |
 
 ## Outputs
 
