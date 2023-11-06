@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/data-platform-hq/terraform-azurerm-storage-account/compare/v1.5.0...v1.5.1) (2023-11-06)
+
+
+### Bug Fixes
+
+* storage account data protection config ([b3e4415](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/b3e4415fd040c95d1bb6f118cd36e9fcdb8a102b))
+
 # [1.5.0](https://github.com/data-platform-hq/terraform-azurerm-storage-account/compare/v1.4.0...v1.5.0) (2023-10-03)
 
 
