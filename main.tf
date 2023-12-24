@@ -1,7 +1,7 @@
 data "azurerm_client_config" "this" {}
 
 locals {
-  ip_rules             = var.ip_rules == null ? null : values(var.ip_rules)
+  ip_rules             = var.ip_rules == null ? null : compact(values(var.ip_rules))
   storage_account_name = substr(replace(var.custom_storage_account_name == null ? "${var.prefix}${var.project}${var.suffix}${var.env}${var.location}" : "${var.prefix}${var.custom_storage_account_name}${var.suffix}", "-", ""), 0, 24)
 
   # Object with parameters to assign required role to Global Azure Key Vault Principal Id to perform automated Storage Account Access Key rotations
