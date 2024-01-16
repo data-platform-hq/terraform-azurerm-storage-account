@@ -1,3 +1,10 @@
+## [1.5.3](https://github.com/data-platform-hq/terraform-azurerm-storage-account/compare/v1.5.2...v1.5.3) (2024-01-16)
+
+
+### Bug Fixes
+
+* support aad default auth ([cd48cbd](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/cd48cbd0809949182ddb981f545c6a9c49b57a70))
+
 ## [1.5.2](https://github.com/data-platform-hq/terraform-azurerm-storage-account/compare/v1.5.1...v1.5.2) (2023-12-24)
 
 
