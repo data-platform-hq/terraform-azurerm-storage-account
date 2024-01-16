@@ -29,6 +29,7 @@ resource "azurerm_storage_account" "this" {
   allow_nested_items_to_be_public = var.allow_nested_items_to_be_public
   tags                            = var.tags
   shared_access_key_enabled       = var.shared_access_key_enabled
+  default_to_oauth_authentication = var.default_to_oauth_authentication
 
   identity {
     type = "SystemAssigned"

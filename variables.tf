@@ -218,6 +218,12 @@ variable "shared_access_key_enabled" {
   default     = false
 }
 
+variable "default_to_oauth_authentication" {
+  type        = bool
+  description = "Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account"
+  default     = true
+}
+
 variable "encryption_scope_infrastructure_encryption_required" {
   type        = bool
   description = "Encryption scope. Is a secondary layer of encryption with Platform Managed Keys"
