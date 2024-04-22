@@ -1,3 +1,12 @@
+## [1.5.4](https://github.com/data-platform-hq/terraform-azurerm-storage-account/compare/v1.5.3...v1.5.4) (2024-04-22)
+
+
+### Bug Fixes
+
+* added security KICS scan action ([8a146eb](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/8a146eb380c96150aa06c5f565e024c54b37a429))
+* remove deprecated parameters ([991d910](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/991d91064e50f7c63a841a18d4ee39acf17f173c))
+* replaced pre-commit repo docs creation/update by GH Actions ([166fa3c](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/166fa3c5146dbfb9737bd1de8117e7505946eefe))
+
 ## [1.5.3](https://github.com/data-platform-hq/terraform-azurerm-storage-account/compare/v1.5.2...v1.5.3) (2024-01-16)
 
 
