@@ -37,13 +37,13 @@ module "storage_account" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >=3.69.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >= 4.0.1 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | >=3.69.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | >= 4.0.1 |
 
 ## Modules
 
@@ -86,11 +86,11 @@ No modules.
 | <a name="input_delete_retention_policy_days"></a> [delete\_retention\_policy\_days](#input\_delete\_retention\_policy\_days) | Soft delete duration in days to recover blobs and directories | `string` | `7` | no |
 | <a name="input_delete_retention_policy_enabled"></a> [delete\_retention\_policy\_enabled](#input\_delete\_retention\_policy\_enabled) | Soft delete enables you to recover blobs and directories | `bool` | `false` | no |
 | <a name="input_destination_type"></a> [destination\_type](#input\_destination\_type) | Log analytics destination type | `string` | `"Dedicated"` | no |
-| <a name="input_enable_https_traffic_only"></a> [enable\_https\_traffic\_only](#input\_enable\_https\_traffic\_only) | Boolean flag which forces HTTPS if enabled: [true\|false] | `bool` | `true` | no |
 | <a name="input_encryption_scope_enabled"></a> [encryption\_scope\_enabled](#input\_encryption\_scope\_enabled) | Storage encryption scope enabled | `bool` | `false` | no |
 | <a name="input_encryption_scope_infrastructure_encryption_required"></a> [encryption\_scope\_infrastructure\_encryption\_required](#input\_encryption\_scope\_infrastructure\_encryption\_required) | Encryption scope. Is a secondary layer of encryption with Platform Managed Keys | `bool` | `true` | no |
 | <a name="input_encryption_scope_source"></a> [encryption\_scope\_source](#input\_encryption\_scope\_source) | The source of the Storage Encryption Scope | `string` | `"Microsoft.KeyVault"` | no |
 | <a name="input_env"></a> [env](#input\_env) | Environment name | `string` | n/a | yes |
+| <a name="input_https_traffic_only_enabled"></a> [https\_traffic\_only\_enabled](#input\_https\_traffic\_only\_enabled) | Boolean flag which forces HTTPS if enabled: [true\|false] | `bool` | `true` | no |
 | <a name="input_ip_rules"></a> [ip\_rules](#input\_ip\_rules) | Map of IP addresses permitted to access storage account | `map(string)` | `null` | no |
 | <a name="input_is_hns_enabled"></a> [is\_hns\_enabled](#input\_is\_hns\_enabled) | Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2: [true\|false] | `bool` | `true` | no |
 | <a name="input_key_permissions"></a> [key\_permissions](#input\_key\_permissions) | List of KeyVault keys permissions | `list(string)` | <pre>[<br>  "Get",<br>  "List",<br>  "WrapKey",<br>  "UnwrapKey"<br>]</pre> | no |
