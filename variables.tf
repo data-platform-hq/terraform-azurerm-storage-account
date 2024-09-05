@@ -66,7 +66,7 @@ variable "access_tier" {
   default     = "Hot"
 }
 
-variable "enable_https_traffic_only" {
+variable "https_traffic_only_enabled" {
   type        = bool
   description = "Boolean flag which forces HTTPS if enabled: [true|false]"
   default     = true
