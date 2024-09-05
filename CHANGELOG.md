@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/data-platform-hq/terraform-azurerm-storage-account/compare/v1.5.4...v1.6.0) (2024-09-05)
+
+
+### Features
+
+* upgrade to AzureRM v4 ([aa2e05d](https://github.com/data-platform-hq/terraform-azurerm-storage-account/commit/aa2e05d15a6d21e439eba8135f2fae40d90f5769))
+
 ## [1.5.4](https://github.com/data-platform-hq/terraform-azurerm-storage-account/compare/v1.5.3...v1.5.4) (2024-04-22)
 
 
