@@ -37,13 +37,13 @@ module "storage_account" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >= 4.0.1 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 4.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | >= 4.0.1 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~> 4.0 |
 
 ## Modules
 
@@ -74,8 +74,8 @@ No modules.
 | <a name="input_account_kind"></a> [account\_kind](#input\_account\_kind) | Kind of account. [BlobStorage\|BlockBlobStorage\|FileStorage\|Storage\|StorageV2] | `string` | `"StorageV2"` | no |
 | <a name="input_account_tier"></a> [account\_tier](#input\_account\_tier) | Tier to use for this storage account: [Standard\|Premium] | `string` | `"Standard"` | no |
 | <a name="input_allow_nested_items_to_be_public"></a> [allow\_nested\_items\_to\_be\_public](#input\_allow\_nested\_items\_to\_be\_public) | Allow or disallow nested items within this Account to opt into being public. | `bool` | `true` | no |
-| <a name="input_blob_cors_rules"></a> [blob\_cors\_rules](#input\_blob\_cors\_rules) | List of Blob CORS rules | <pre>list(object({<br>    allowed_headers    = list(string)<br>    allowed_methods    = list(string)<br>    allowed_origins    = list(string)<br>    exposed_headers    = list(string)<br>    max_age_in_seconds = number<br>  }))</pre> | `[]` | no |
-| <a name="input_bypass"></a> [bypass](#input\_bypass) | Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of Logging, Metrics, AzureServices, or None. | `set(string)` | <pre>[<br>  "AzureServices"<br>]</pre> | no |
+| <a name="input_blob_cors_rules"></a> [blob\_cors\_rules](#input\_blob\_cors\_rules) | List of Blob CORS rules | <pre>list(object({<br/>    allowed_headers    = list(string)<br/>    allowed_methods    = list(string)<br/>    allowed_origins    = list(string)<br/>    exposed_headers    = list(string)<br/>    max_age_in_seconds = number<br/>  }))</pre> | `[]` | no |
+| <a name="input_bypass"></a> [bypass](#input\_bypass) | Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of Logging, Metrics, AzureServices, or None. | `set(string)` | <pre>[<br/>  "AzureServices"<br/>]</pre> | no |
 | <a name="input_cmk_encryption_enabled"></a> [cmk\_encryption\_enabled](#input\_cmk\_encryption\_enabled) | Customer Managed Key encryption using Key Vault Key enabled | `bool` | `false` | no |
 | <a name="input_container_delete_retention_policy_days"></a> [container\_delete\_retention\_policy\_days](#input\_container\_delete\_retention\_policy\_days) | Soft delete duration in days to recover container | `string` | `7` | no |
 | <a name="input_container_delete_retention_policy_enabled"></a> [container\_delete\_retention\_policy\_enabled](#input\_container\_delete\_retention\_policy\_enabled) | Soft delete enables you to recover containers | `bool` | `false` | no |
@@ -93,7 +93,7 @@ No modules.
 | <a name="input_https_traffic_only_enabled"></a> [https\_traffic\_only\_enabled](#input\_https\_traffic\_only\_enabled) | Boolean flag which forces HTTPS if enabled: [true\|false] | `bool` | `true` | no |
 | <a name="input_ip_rules"></a> [ip\_rules](#input\_ip\_rules) | Map of IP addresses permitted to access storage account | `map(string)` | `null` | no |
 | <a name="input_is_hns_enabled"></a> [is\_hns\_enabled](#input\_is\_hns\_enabled) | Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2: [true\|false] | `bool` | `true` | no |
-| <a name="input_key_permissions"></a> [key\_permissions](#input\_key\_permissions) | List of KeyVault keys permissions | `list(string)` | <pre>[<br>  "Get",<br>  "List",<br>  "WrapKey",<br>  "UnwrapKey"<br>]</pre> | no |
+| <a name="input_key_permissions"></a> [key\_permissions](#input\_key\_permissions) | List of KeyVault keys permissions | `list(string)` | <pre>[<br/>  "Get",<br/>  "List",<br/>  "WrapKey",<br/>  "UnwrapKey"<br/>]</pre> | no |
 | <a name="input_key_vault_global_object_id"></a> [key\_vault\_global\_object\_id](#input\_key\_vault\_global\_object\_id) | Azure Key Vault Global Object ID value | `string` | `"12b3bdbf-e278-42d6-87af-4867477e2571"` | no |
 | <a name="input_key_vault_id"></a> [key\_vault\_id](#input\_key\_vault\_id) | The ID of the Key Vault | `string` | `null` | no |
 | <a name="input_key_vault_key_id"></a> [key\_vault\_key\_id](#input\_key\_vault\_key\_id) | Key Vault Key Id used for Encryption Scope creation | `string` | `null` | no |
@@ -101,9 +101,9 @@ No modules.
 | <a name="input_key_vault_managed_storage_keys_enabled"></a> [key\_vault\_managed\_storage\_keys\_enabled](#input\_key\_vault\_managed\_storage\_keys\_enabled) | Boolean flag that determines whether Storage Account Access Keys are automatically managed and rotated by Key Vault | `bool` | `true` | no |
 | <a name="input_location"></a> [location](#input\_location) | Azure location | `string` | n/a | yes |
 | <a name="input_log_analytics_workspace"></a> [log\_analytics\_workspace](#input\_log\_analytics\_workspace) | Log Analytics Workspace Name to ID map | `map(string)` | `{}` | no |
-| <a name="input_log_category_list"></a> [log\_category\_list](#input\_log\_category\_list) | Log category list | `list(string)` | <pre>[<br>  "StorageRead",<br>  "StorageWrite",<br>  "StorageDelete"<br>]</pre> | no |
+| <a name="input_log_category_list"></a> [log\_category\_list](#input\_log\_category\_list) | Log category list | `list(string)` | <pre>[<br/>  "StorageRead",<br/>  "StorageWrite",<br/>  "StorageDelete"<br/>]</pre> | no |
 | <a name="input_min_tls_version"></a> [min\_tls\_version](#input\_min\_tls\_version) | The minimum supported TLS version for the storage account: [TLS1\_0\|TLS1\_1\|TLS1\_2] | `string` | `"TLS1_2"` | no |
-| <a name="input_permissions"></a> [permissions](#input\_permissions) | Set of objects, where you can assign role to certain principal and name this assignment. | <pre>list(object({<br>    name      = string<br>    object_id = string<br>    role      = string<br>  }))</pre> | `[]` | no |
+| <a name="input_permissions"></a> [permissions](#input\_permissions) | Set of objects, where you can assign role to certain principal and name this assignment. | <pre>list(object({<br/>    name      = string<br/>    object_id = string<br/>    role      = string<br/>  }))</pre> | `[]` | no |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | Resource name prefix | `string` | `""` | no |
 | <a name="input_project"></a> [project](#input\_project) | Project name | `string` | n/a | yes |
 | <a name="input_regenerate_key_automatically"></a> [regenerate\_key\_automatically](#input\_regenerate\_key\_automatically) | Storage Account access key regenerated periodically switch | `bool` | `true` | no |
